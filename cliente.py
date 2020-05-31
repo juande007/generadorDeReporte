@@ -5,13 +5,9 @@
 
 class cliente():
 
-	def __init__(nombre_cliente, nombre_contacto): 
- 	 		self.nombre_cliente = nombre_cliente 
+	def __init__(nombre_cliente, nombre_contacto):
+ 	 		self.nombre_cliente = nombre_cliente
  	 		self.nombre_contacto = nombre_contacto
- 	
- 	def cliente_contacto(self): 
- 	 		return "El nombre del cliente es %s y su contacto es %i" % (self.nombre_cliente, self.nombre_contacto) 
 
-e = cliente("Tigo", "Carlos Mercado") 
-print e.hola() 
- 	
+ 	def cliente_contacto(self):
+ 	 		return "El nombre del cliente es %s y su contacto es %i" % (self.nombre_cliente, self.nombre_contacto) 
