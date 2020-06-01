@@ -10,4 +10,8 @@ class cliente():
  	 		self.nombre_contacto = nombre_contacto
 
  	def cliente_contacto(self):
- 	 		return "El nombre del cliente es %s y su contacto es %i" % (self.nombre_cliente, self.nombre_contacto) 
+ 	 		return "El nombre del cliente es %s y su contacto es %i" % (self.nombre_cliente, self.nombre_contacto)
+def main():
+	print("hola")
+
+def __name__=='__main__':
