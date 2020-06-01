@@ -3,15 +3,19 @@
 #	id_sonda = int(raw_input('Ingrese el ID de la sonda: '))
 #	id_cliente = int(raw_input('Customer (1=Tigo Bolivia 2=Nuevatel ): '))
 
-class cliente():
+class Cliente(object):
+    def __init__(self,nombre_cliente,nombre_contacto):
+        self.nombre_cliente = nombre_cliente
+        self.nombre_contacto = nombre_contacto
 
-	def __init__(nombre_cliente, nombre_contacto):
- 	 		self.nombre_cliente = nombre_cliente
- 	 		self.nombre_contacto = nombre_contacto
+    def cliente_contacto(self):
+	    return "El nombre del cliente es %s y su contacto es %s" % (self.nombre_cliente, self.nombre_contacto)
 
- 	def cliente_contacto(self):
- 	 		return "El nombre del cliente es %s y su contacto es %i" % (self.nombre_cliente, self.nombre_contacto)
 def main():
-	print("hola")
-
-def __name__=='__main__':
+	print("hola2")
+	carlos=Cliente("Tigo","Carlos Mercado")
+	print(carlos.cliente_contacto())
+	
+	
+if __name__=='__main__':
+    main()
