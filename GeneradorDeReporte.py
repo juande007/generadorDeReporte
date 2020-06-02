@@ -15,26 +15,14 @@ from docx.shared import Pt
 
 #if navegador
 
-def leer_tarea():  # Es la tarea que el usuario va a realizar, como escribir:tigo 3322
-	id_sonda = int(raw_input('Ingrese el ID de la sonda: '))
-	id_cliente = int(raw_input('Customer (1=Tigo Bolivia 2=Nuevatel ): '))
-leer_tarea()
-
-class cliente():
-
-	def __init__(nombre_cliente, nombre_contacto): 
- 	 		self.nombre_cliente = nombre_cliente 
- 	 		self.nombre_contacto = nombre_contacto
- 	
- 	 def cliente_contacto(self): 
- 	 		return "El nombre del cliente es %s y su contacto es %i" % (self.nombre_cliente, self.nombre_contacto) 
-
+#def leer_tarea():  # Es la tarea que el usuario va a realizar, como escribir:tigo 3322
+id_sonda = int(raw_input('Ingrese el ID de la sonda: '))
+id_cliente = int(raw_input('Customer (1=Tigo Bolivia 2=Nuevatel ): '))
+#leer_tarea()
 
 def run():
 	if id_cliente == 1:
 		print 'Descarga el doc 1'
-
-
 		document = Document()
 		style = document.styles['Normal']
 		font = style.font
@@ -46,7 +34,7 @@ def run():
 		document.add_paragraph("1. GENERAL INFO")
 		document.add_paragraph("GEMALTO SUPPORT TEAM - TECHNICAL REPORT")
 		document.add_paragraph("Customer: Tigo Bolivia")
-		document.add_paragraph("Contac Name: " + str(contact))
+		document.add_paragraph("Contac Name: Carlos Mercado")
 		document.add_paragraph("Call id: ")
 		document.add_paragraph("Date & Time: " + time.strftime("%x"))
 		
@@ -81,7 +69,3 @@ def run():
 		document.add_paragraph("ID de erros: ")
 		document.save('SondaDePrueba2.docx')
 run()
-
-print ('La sonda '+ str(id_sonda) + ' reporta el error ' + str(id_error))
-
-
