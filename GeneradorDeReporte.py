@@ -1,71 +1,31 @@
 # -*- coding: utf-8 -*-
-import time
+import re
+from cliente import Cliente
 
-from docx import Document
-from docx.enum.style import WD_STYLE_TYPE
-from docx.shared import Inches
-from docx.enum.text import WD_LINE_SPACING
-from docx.shared import Length
-from docx.shared import Pt
+#La funcion tarea capta y separa el nombre del cliente y la sonda que ingresaron
+def tarea():
+	palabra= (raw_input('Escriba una palabra: '))
+	patron = re.compile('([a-zA-Z]+)(\s)')
+	matcher = patron.search(palabra)
+	cliente = matcher.group()
+	print ('El cliente es: ' + cliente)
+	patron = re.compile('(\s)([0-9]+)')
+	matcher = patron.search(palabra)
+	matcher.groups()
+	id_sonda = matcher.group(0)
+	print(tarea)
+	print ('La sonda es: ' + id_sonda)
+	#En este codigo se llama la clase Cliente y la funcion buscar cliente
+	objetoCliente = Cliente("tigo","test")
+	print(objetoCliente.buscar_cliente())
 
-#navegador = str(raw_input('Ejemplo: Ingrese Tigo 3322'))
+def main():
+	tarea()
 
-#contact = str(raw_input('Nombre de Contacto : '))
-#navegador = 
+	#crear un objeto cliente, el cliente debe gardar la sonda, crear la si no existe,
+	#Se deben mostrar los issues
+	#Crear dentro de la carpeta de la sonda una carpeta que diga incidentes, que por dentro tenta un json con los issues.
+	#
 
-#if navegador
-
-#def leer_tarea():  # Es la tarea que el usuario va a realizar, como escribir:tigo 3322
-id_sonda = int(raw_input('Ingrese el ID de la sonda: '))
-id_cliente = int(raw_input('Customer (1=Tigo Bolivia 2=Nuevatel ): '))
-#leer_tarea()
-
-def run():
-	if id_cliente == 1:
-		print 'Descarga el doc 1'
-		document = Document()
-		style = document.styles['Normal']
-		font = style.font
-		font.name = 'Arial'
-		font.size = Pt(9.1)
-		font.italic = True
-
-		document.add_paragraph("--------------------------------------------------------------------")
-		document.add_paragraph("1. GENERAL INFO")
-		document.add_paragraph("GEMALTO SUPPORT TEAM - TECHNICAL REPORT")
-		document.add_paragraph("Customer: Tigo Bolivia")
-		document.add_paragraph("Contac Name: Carlos Mercado")
-		document.add_paragraph("Call id: ")
-		document.add_paragraph("Date & Time: " + time.strftime("%x"))
-		
-		paragraph = document.add_paragraph('')
-		run = paragraph.add_run('Cliente ID: ' + str(id_sonda))
-		run.bold = True
-
-		paragraph = document.add_paragraph('')
-		run = paragraph.add_run('Descripcion: ')
-		run.bold = True
-
-		document.add_paragraph("--------------------------------------------------------------------")
-		document.add_paragraph("2. DETAILS OF INCIDENT: ")
-		document.add_paragraph("Impacted platform: ")
-		document.add_paragraph("Root Cause: ")
-		document.add_paragraph("Incident description: ")
-		document.add_paragraph("Evidencias: ")
-
-		document.add_paragraph("--------------------------------------------------------------------")
-		document.add_paragraph("3. RESOLUTION")
-		document.add_paragraph("Incident Analysis: ")
-		document.add_paragraph("Workaround: ")
-		document.add_paragraph("Recommendation: ")
-		document.add_paragraph("Additional comments: NA")
-		document.save('Sonda.docx')
-
-	elif id_cliente > 1:
-		print ('Descarga doc 2')
-		document = Document()
-		document.add_heading("Python Doc Word 2")
-		document.add_paragraph("ID de la sonda: " + str(id_sonda))
-		document.add_paragraph("ID de erros: ")
-		document.save('SondaDePrueba2.docx')
-run()
+if __name__=='__main__':
+    main()

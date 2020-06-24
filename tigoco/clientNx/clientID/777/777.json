@@ -1,0 +1,17 @@
+{
+    "nuevaSonda": [
+        {
+            "ID Sonda:": "777"
+        }
+    ], 
+    "nuevoNombre": [
+        {
+            "Nombre sonda: ": "hsh"
+        }
+    ], 
+    "nuevaDescripcion": [
+        {
+            "Descripcion sonda: ": "nn"
+        }
+    ]
+}

@@ -1,11 +1,26 @@
 import json
 import os
 from os import remove
+from shutil import rmtree
 
-#def mostrarClientes:
-#    dir = './Clientes'
-#    contenido = os.listdir(dir)
-#    print(contenido)
+
+def menu_cliente():
+
+    print('1- Editar un cliente: ')
+    print('2- Eliminar un cliente: ')
+    opcion = (raw_input('Seleccione la tarea a realizar: '))
+
+    if opcion == '1':
+        editar_cliente()
+    else:
+        eliminar_cliente()
+
+
+def mostrar_clientes():
+    print('L I S T A  D E  C L I E N T E S')
+    dir = "./Clientes"
+    contenido = os.listdir(dir)
+    print(contenido)
 
 
 def agregar_Cliente():
@@ -25,7 +40,6 @@ def agregar_Cliente():
     print ("Se guardo nuevo cliente: " + nuevo_cliente)
 
 
-#hola primo!!!!
 def editar_cliente():
 
 
@@ -55,9 +69,19 @@ def editar_cliente():
     with open(str(file_cliente_new), 'w') as file:
         json.dump(clientJson, file, indent=4)
 
+def eliminar_cliente():
+
+    carpeta= (raw_input('Escriba el nombre de la carpeta a eliminar: '))
+    rmtree('./Clientes/'+ carpeta,carpeta)
+
 
 def main():
+
     agregar_Cliente()
-    editar_cliente()
+    mostrar_clientes()
+    menu_cliente()
+
+    #editar_cliente()
+    #eliminar_cliente()
 if __name__=='__main__':
     main()
