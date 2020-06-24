@@ -1,0 +1,3 @@
+Set-ExecutionPolicy Unrestricted
+C:\Users\AdminQoS\AppData\Local\Swiss Mobility Solutions\NxClient
+C:\Users\AdminQoS\Desktop\scripts20200422
