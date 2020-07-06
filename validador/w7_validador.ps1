@@ -168,8 +168,6 @@ Function deferenciadorDeError{
 
 
 
-
-
 Function validarSiNxclientExiste{			
 		$NxClient = Get-Process nxclient -ErrorAction SilentlyContinue
 		if($NxClient -eq $null)

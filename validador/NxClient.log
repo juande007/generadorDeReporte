@@ -1,0 +1,233 @@
+2018-04-09 01:19:07.431 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 458552 to NULL because it was > 48000
+2018-04-09 01:19:07.462 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 421848 to NULL because it was > 48000
+2018-04-09 01:19:07.493 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 423230 to NULL because it was > 48000
+2018-04-09 01:19:07.509 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 413942 to NULL because it was > 48000
+2018-04-09 01:19:07.540 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 336268 to NULL because it was > 48000
+2018-04-09 01:19:07.556 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 229688 to NULL because it was > 48000
+2018-04-09 01:19:07.587 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 112038 to NULL because it was > 48000
+2018-04-09 01:19:07.618 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 59900 to NULL because it was > 48000
+2018-04-09 01:19:07.790 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 91402 to NULL because it was > 48000
+2018-04-09 01:19:07.821 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 189898 to NULL because it was > 48000
+2018-04-09 01:19:07.868 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 167895 to NULL because it was > 48000
+2018-04-09 01:19:07.884 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 130106 to NULL because it was > 48000
+2018-04-09 01:19:07.915 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 61705 to NULL because it was > 48000
+2018-04-09 01:19:07.931 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 105233 to NULL because it was > 48000
+2018-04-09 01:19:07.962 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 173635 to NULL because it was > 48000
+2018-04-09 01:19:07.993 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 245863 to NULL because it was > 48000
+2018-04-09 01:19:08.009 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 334833 to NULL because it was > 48000
+2018-04-09 01:19:08.040 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 308525 to NULL because it was > 48000
+2018-04-09 01:19:08.071 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 303741 to NULL because it was > 48000
+2018-04-09 01:19:08.087 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 307090 to NULL because it was > 48000
+2018-04-09 01:19:08.118 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 402278 to NULL because it was > 48000
+2018-04-09 01:19:08.134 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 380842 to NULL because it was > 48000
+2018-04-09 01:19:08.165 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 244995 to NULL because it was > 48000
+2018-04-09 01:19:08.181 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 76206 to NULL because it was > 48000
+2018-04-09 01:19:08.446 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 56443 to NULL because it was > 48000
+2018-04-09 01:19:08.478 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 137281 to NULL because it was > 48000
+2018-04-09 01:19:08.493 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 272650 to NULL because it was > 48000
+2018-04-09 01:19:08.525 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 392711 to NULL because it was > 48000
+2018-04-09 01:19:08.540 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 471636 to NULL because it was > 48000
+2018-04-09 01:19:08.571 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 497466 to NULL because it was > 48000
+2018-04-09 01:19:08.587 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 445806 to NULL because it was > 48000
+2018-04-09 01:19:08.618 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 346313 to NULL because it was > 48000
+2018-04-09 01:19:08.634 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 211423 to NULL because it was > 48000
+2018-04-09 01:19:08.665 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 178896 to NULL because it was > 48000
+2018-04-09 01:19:08.681 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 235417 to NULL because it was > 48000
+2018-04-09 01:19:08.712 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 198597 to NULL because it was > 48000
+2018-04-09 01:19:08.728 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 116802 to NULL because it was > 48000
+2018-04-09 01:19:08.946 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 77031 to NULL because it was > 48000
+2018-04-09 01:19:08.978 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 77031 to NULL because it was > 48000
+2018-04-09 01:19:08.993 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 86100 to NULL because it was > 48000
+2018-04-09 01:19:09.040 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 85634 to NULL because it was > 48000
+2018-04-09 01:19:09.071 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 173647 to NULL because it was > 48000
+2018-04-09 01:19:09.103 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 291783 to NULL because it was > 48000
+2018-04-09 01:19:09.118 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 411845 to NULL because it was > 48000
+2018-04-09 01:19:09.150 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 398930 to NULL because it was > 48000
+2018-04-09 01:19:09.165 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 306133 to NULL because it was > 48000
+2018-04-09 01:19:09.196 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 266431 to NULL because it was > 48000
+2018-04-09 01:19:09.212 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 348226 to NULL because it was > 48000
+2018-04-09 01:19:09.243 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 400932 to NULL because it was > 48000
+2018-04-09 01:19:09.275 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 276565 to NULL because it was > 48000
+2018-04-09 01:19:09.306 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 110583 to NULL because it was > 48000
+2018-04-09 01:19:09.493 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 48311 to NULL because it was > 48000
+2018-04-09 01:19:09.509 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 111930 to NULL because it was > 48000
+2018-04-09 01:19:09.540 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 102841 to NULL because it was > 48000
+2018-04-09 01:19:09.571 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 64096 to NULL because it was > 48000
+2018-04-09 01:19:09.634 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 94710 to NULL because it was > 48000
+2018-04-09 01:19:09.665 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 197073 to NULL because it was > 48000
+2018-04-09 01:19:09.681 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 303263 to NULL because it was > 48000
+2018-04-09 01:19:09.712 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 347270 to NULL because it was > 48000
+2018-04-09 01:19:09.728 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 358750 to NULL because it was > 48000
+2018-04-09 01:19:09.759 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 409931 to NULL because it was > 48000
+2018-04-09 01:19:09.775 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 440545 to NULL because it was > 48000
+2018-04-09 01:19:09.806 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 483683 to NULL because it was > 48000
+2018-04-09 01:19:09.837 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 318658 to NULL because it was > 48000
+2018-04-09 01:19:09.853 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 156982 to NULL because it was > 48000
+2018-04-09 01:19:09.900 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 64790 to NULL because it was > 48000
+2018-04-09 01:19:09.931 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 154716 to NULL because it was > 48000
+2018-04-09 01:19:09.962 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 239203 to NULL because it was > 48000
+2018-04-09 01:19:09.978 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 290826 to NULL because it was > 48000
+2018-04-09 01:19:10.009 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 357315 to NULL because it was > 48000
+2018-04-09 01:19:10.040 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 440545 to NULL because it was > 48000
+2018-04-09 01:19:10.056 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 489813 to NULL because it was > 48000
+2018-04-09 01:19:10.087 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 490291 to NULL because it was > 48000
+2018-04-09 01:19:10.103 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 402775 to NULL because it was > 48000
+2018-04-09 01:19:10.134 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 237272 to NULL because it was > 48000
+2018-04-09 01:19:10.150 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 80394 to NULL because it was > 48000
+2018-04-09 01:19:10.228 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 155195 to NULL because it was > 48000
+2018-04-09 01:19:10.243 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 312487 to NULL because it was > 48000
+2018-04-09 01:19:10.275 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 444869 to NULL because it was > 48000
+2018-04-09 01:19:10.306 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 486006 to NULL because it was > 48000
+2018-04-09 01:19:10.321 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 483614 to NULL because it was > 48000
+2018-04-09 01:19:10.353 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 467331 to NULL because it was > 48000
+2018-04-09 01:19:10.368 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 453460 to NULL because it was > 48000
+2018-04-09 01:19:10.400 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 345375 to NULL because it was > 48000
+2018-04-09 01:19:10.431 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 196135 to NULL because it was > 48000
+2018-04-09 01:19:10.446 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 56677 to NULL because it was > 48000
+2018-04-09 01:19:10.478 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 146585 to NULL because it was > 48000
+2018-04-09 01:19:10.509 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 310175 to NULL because it was > 48000
+2018-04-09 01:19:10.525 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 466853 to NULL because it was > 48000
+2018-04-09 01:19:10.556 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 494118 to NULL because it was > 48000
+2018-04-09 01:19:10.571 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 464940 to NULL because it was > 48000
+2018-04-09 01:19:10.603 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 366881 to NULL because it was > 48000
+2018-04-09 01:19:10.634 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 307568 to NULL because it was > 48000
+2018-04-09 01:19:10.650 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 337225 to NULL because it was > 48000
+2018-04-09 01:19:10.681 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 353028 to NULL because it was > 48000
+2018-04-09 01:19:10.696 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 248273 to NULL because it was > 48000
+2018-04-09 01:19:10.728 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 84205 to NULL because it was > 48000
+2018-04-09 01:19:10.821 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 110709 to NULL because it was > 48000
+2018-04-09 01:19:10.853 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 274778 to NULL because it was > 48000
+2018-04-09 01:19:10.868 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 442032 to NULL because it was > 48000
+2018-04-09 01:19:10.900 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 481681 to NULL because it was > 48000
+2018-04-09 01:19:10.931 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 465418 to NULL because it was > 48000
+2018-04-09 01:19:10.946 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 446763 to NULL because it was > 48000
+2018-04-09 01:19:10.978 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 444371 to NULL because it was > 48000
+2018-04-09 01:19:10.993 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 407540 to NULL because it was > 48000
+2018-04-09 01:19:11.025 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 362595 to NULL because it was > 48000
+2018-04-09 01:19:11.040 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 214790 to NULL because it was > 48000
+2018-04-09 01:19:11.071 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 103917 to NULL because it was > 48000
+2018-04-09 01:19:11.087 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 60963 to NULL because it was > 48000
+2018-04-09 01:19:11.118 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 223596 to NULL because it was > 48000
+2018-04-09 01:19:11.150 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 389477 to NULL because it was > 48000
+2018-04-09 01:19:11.165 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 496031 to NULL because it was > 48000
+2018-04-09 01:19:11.196 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 487900 to NULL because it was > 48000
+2018-04-09 01:19:11.212 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 470680 to NULL because it was > 48000
+2018-04-09 01:19:11.243 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 450590 to NULL because it was > 48000
+2018-04-09 01:19:11.259 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 364987 to NULL because it was > 48000
+2018-04-09 01:19:11.290 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 216225 to NULL because it was > 48000
+2018-04-09 01:19:11.306 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting DL traffic of umts-r99 from 69017 to NULL because it was > 48000
+2018-04-09 01:19:11.384 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 61308 to NULL because it was > 48000
+2018-04-09 01:19:11.415 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:11.431 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:11.462 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:11.478 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52616 to NULL because it was > 48000
+2018-04-09 01:19:11.509 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:11.525 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:11.556 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:11.571 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52616 to NULL because it was > 48000
+2018-04-09 01:19:11.603 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:11.618 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52636 to NULL because it was > 48000
+2018-04-09 01:19:11.650 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51711 to NULL because it was > 48000
+2018-04-09 01:19:11.665 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 53161 to NULL because it was > 48000
+2018-04-09 01:19:11.696 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52185 to NULL because it was > 48000
+2018-04-09 01:19:11.712 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52154 to NULL because it was > 48000
+2018-04-09 01:19:11.743 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:11.775 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:11.790 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:11.946 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 61238 to NULL because it was > 48000
+2018-04-09 01:19:11.962 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52616 to NULL because it was > 48000
+2018-04-09 01:19:11.993 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 53095 to NULL because it was > 48000
+2018-04-09 01:19:12.025 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:12.040 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:12.071 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51181 to NULL because it was > 48000
+2018-04-09 01:19:12.087 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:12.118 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:12.134 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:12.165 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:12.181 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52230 to NULL because it was > 48000
+2018-04-09 01:19:12.212 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51273 to NULL because it was > 48000
+2018-04-09 01:19:12.228 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51273 to NULL because it was > 48000
+2018-04-09 01:19:12.259 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:12.275 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52616 to NULL because it was > 48000
+2018-04-09 01:19:12.321 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:12.337 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51181 to NULL because it was > 48000
+2018-04-09 01:19:12.384 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:12.540 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 62195 to NULL because it was > 48000
+2018-04-09 01:19:12.556 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52616 to NULL because it was > 48000
+2018-04-09 01:19:12.587 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:12.618 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 53095 to NULL because it was > 48000
+2018-04-09 01:19:12.634 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:12.665 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:12.681 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:12.775 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 58509 to NULL because it was > 48000
+2018-04-09 01:19:12.790 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 73338 to NULL because it was > 48000
+2018-04-09 01:19:12.821 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 73338 to NULL because it was > 48000
+2018-04-09 01:19:12.853 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:12.868 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 53095 to NULL because it was > 48000
+2018-04-09 01:19:12.900 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 53095 to NULL because it was > 48000
+2018-04-09 01:19:12.931 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52563 to NULL because it was > 48000
+2018-04-09 01:19:12.946 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52085 to NULL because it was > 48000
+2018-04-09 01:19:13.134 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 66091 to NULL because it was > 48000
+2018-04-09 01:19:13.165 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 74356 to NULL because it was > 48000
+2018-04-09 01:19:13.196 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 60962 to NULL because it was > 48000
+2018-04-09 01:19:13.212 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 50917 to NULL because it was > 48000
+2018-04-09 01:19:13.243 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:13.259 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:13.290 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52669 to NULL because it was > 48000
+2018-04-09 01:19:13.306 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52519 to NULL because it was > 48000
+2018-04-09 01:19:13.337 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52041 to NULL because it was > 48000
+2018-04-09 01:19:13.353 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52467 to NULL because it was > 48000
+2018-04-09 01:19:13.384 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:13.415 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52616 to NULL because it was > 48000
+2018-04-09 01:19:13.431 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:13.462 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51989 to NULL because it was > 48000
+2018-04-09 01:19:13.478 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51989 to NULL because it was > 48000
+2018-04-09 01:19:13.509 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52467 to NULL because it was > 48000
+2018-04-09 01:19:13.525 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52467 to NULL because it was > 48000
+2018-04-09 01:19:13.556 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 49846 to NULL because it was > 48000
+2018-04-09 01:19:13.790 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 63288 to NULL because it was > 48000
+2018-04-09 01:19:13.821 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:13.853 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:13.884 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:13.900 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:13.931 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52616 to NULL because it was > 48000
+2018-04-09 01:19:13.946 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:13.978 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:13.993 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:14.025 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52616 to NULL because it was > 48000
+2018-04-09 01:19:14.040 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51660 to NULL because it was > 48000
+2018-04-09 01:19:14.071 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51181 to NULL because it was > 48000
+2018-04-09 01:19:14.103 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 51181 to NULL because it was > 48000
+2018-04-09 01:19:14.118 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:14.150 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52616 to NULL because it was > 48000
+2018-04-09 01:19:14.165 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:14.196 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52138 to NULL because it was > 48000
+2018-04-09 01:19:14.228 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - Limiting UL traffic of umts-r99 from 52130 to NULL because it was > 48000
+2018-04-09 01:19:35.806 - WriteLogTask worker              - sms.nxray.util.sessions.WriteLogTask.Pimp          - INFO  - Written log packet to disk. Session 2552. Part 1. PacketId: 1275
+2018-04-09 01:19:35.837 - WriteLogTask worker              - sms.nxray.util.sessions.WriteLogTask.Pimp          - INFO  - Finished writing session to disk. Session: 2552
+2018-04-09 01:19:42.165 - SessionManager                   - sms.nxray.agents.impl.SessionManagerAgent          - INFO  - Session manager changing to Connecting Status (sessionEvent is Disconnected)
+2018-04-09 01:19:42.181 - SessionManager.Connect           - sms.nxray.agents.impl.SessionManagerAgent.ConnectT - INFO  - Configuring network...
+2018-04-09 01:19:42.196 - SessionManager.Connect           - sms.nxray.agents.impl.SessionManagerAgent.ConnectT - INFO  - Network configured after 1/3 attempts.
+2018-04-09 01:19:42.196 - SessionManager.Connect           - sms.nxray.agents.impl.SessionManagerAgent.ConnectT - INFO  - Attaching to network...
+2018-04-09 01:19:42.212 - SessionManager.Connect           - sms.nxray.agents.impl.SessionManagerAgent.ConnectT - INFO  - Network attached after 1/20 attempts.
+2018-04-09 01:19:42.212 - SessionManager.Connect           - sms.net.DialerFactory                              - INFO  - Instantiated - RAS Dialer
+2018-04-09 01:19:42.212 - SessionManager.Connect           - sms.net.RasDialer                                  - WARN  - Cannot get the status of connection Handle
+2018-04-09 01:20:16.821 - SessionManager                   - sms.nxray.agents.impl.SessionManagerAgent          - INFO  - changeSessionEvent: from Disconnected to Connecting
+2018-04-09 01:20:16.868 - SessionManager                   - sms.nxray.agents.impl.SessionManagerAgent          - INFO  - Started job_passive session. InstallId: c764c60705212961078f419a43b220b9. Session: 2553
+2018-04-09 01:20:19.321 - SessionManager                   - sms.nxray.agents.impl.SessionManagerAgent          - INFO  - changeSessionEvent: from Connecting to Connected
+2018-04-09 01:20:19.321 - SessionManager                   - sms.nxray.agents.impl.SessionManagerAgent          - INFO  - changeSessionEvent: from Connected to Connected
+2018-04-09 01:20:19.321 - SessionManager                   - sms.nxray.agents.impl.SessionManagerAgent          - INFO  - Connected...
+2018-04-09 01:20:19.321 - SessionManager                   - sms.nxray.agents.impl.SessionManagerAgent          - INFO  - Avoiding double connected
+2018-04-09 01:20:19.462 - SessionManager                   - sms.nxray.agents.impl.SessionManagerAgent          - INFO  - Session manager changing to Connected Status (sessionEvent is Connected)
+2018-04-09 01:20:22.446 - LogDb                            - sms.nxray.agents.impl.LogDbAgent                   - INFO  - Started logging session. InstallId: c764c60705212961078f419a43b220b9. Session: 2553
+2018-04-09 01:20:26.681 - Server.CommTask                  - sms.nxray.agents.impl.ServerAgent                  - INFO  - Success in request dynamic configuration. ImsiHash: 732123619732259, mcc: 732, mnc: 123, manufacturer: ZTE CORPORATION, model: MF669, installId: c764c60705212961078f419a43b220b9
+2018-04-09 01:20:26.884 - Server.CommTask                  - sms.nxray.agents.impl.ServerAgent                  - INFO  - Finished processing dynamic config
+2018-04-09 01:20:28.134 - Server.CommTask                  - sms.nxray.agents.impl.ServerAgent                  - INFO  - Uploaded packet to server. InstallId: c764c60705212961078f419a43b220b9, ImsiHash: 732123619732259, PacketId: 1275
+2018-04-09 01:20:28.618 - SessionManager                   - sms.nxray.agents.impl.SessionManagerAgent          - INFO  - Session manager changing to Disconnecting Status (sessionEvent is Connected)
+2018-04-09 01:20:28.837 - SessionManager                   - sms.nxray.agents.impl.SessionManagerAgent          - INFO  - changeSessionEvent: from Connected to Disconnected
+2018-04-09 01:20:30.321 - SessionManager                   - sms.nxray.agents.impl.SessionManagerAgent          - INFO  - changeSessionEvent: from Disconnected to Disconnected
+2020-06-26 22:44:38.839 - Prueba Late packet
+2018-04-09 01:19:10.681 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - SIM PIN required of umts-r99 from 353028 to NULL because it was > 48000
+2018-04-09 01:19:10.681 - WriteLogTask worker              - sms.nxray.util.sessions.postprocessors.IpProcessor - WARN  - SIM PIN required of umts-r99 from 353028 to NULL because it was > 48000
+2020-07-06 15:52:05.073 - Iniciando validador...
+2020-07-06 15:52:05.123 - Finalizando validador...
