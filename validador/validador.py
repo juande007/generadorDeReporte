@@ -51,7 +51,9 @@ class Validador ():
 
         #Ruta oficial
         #$Global:aplication_folder="C:\Program Files\Swiss Mobility Solutions\NxClient"
-        aplication_exe_folder = "C:\Program Files\Swiss Mobility Solutions\NxClient"
+        self.aplication_exe = ""
+        self.aplication_log = ""
+        self.ruta_file_issues =""
         aplication_exe_folderB = "C:\Program Files (x86)\Swiss Mobility Solutions\NxClient"
 
     def escribirLog(self,log):
@@ -103,13 +105,13 @@ class Validador ():
 # }
 
     def leer_errores (self, ruta):
-        with open(ruta) as file:
+        with open(self.ruta_file_issues) as file:
             issues_json = json.load(file)
             for issueOBJ in issues_json ['issues']:
                 self.listDeIssues.append (Issues(issueOBJ['codigo'], issueOBJ['issuesABuscar'], issueOBJ['erroresContados'], issueOBJ['numeroErroresActual'], issueOBJ['disparador']))
 
     def contadorMultiErrores (self):
-        archivoLog = open('NxClient.log', "r")
+        archivoLog = open(self.aplication_log, "r")
         for lineaDelLog in archivoLog.readlines(): # Este for recorre todas las lineas del archivo nxclient .log
             for issues in self.listDeIssues: # para cada de log, con este FORe recorremos la lista de errores y buscamos el error en la linea
                 x = re.search(issues.issuesABuscar, lineaDelLog)
@@ -125,8 +127,8 @@ class Validador ():
             # print('Errores contados = '+ str(issues.erroresContados) + 'Errores Actuales = '+ str(issues.numeroErroresActual))
             # issues.diferencia = int(issues.numeroErroresActual) - int(issues.erroresContados)
 
-            ruta = "issues.json"
-        with open(ruta) as file:
+            ruta = "C:/thales/scripts/issues.json"
+        with open(self.ruta_file_issues) as file:
             issues_jsonB = json.load(file)
             for issueOBJB in issues_jsonB ['issues']:
                 for issues in self.listDeIssues:
@@ -154,12 +156,31 @@ class Validador ():
             issues.diferencias()
 
             if issues.diferencia > issues.disparador :
-                print ('Correcto, disparador es: ' + str(issues.disparador) + ' La diferencia es :' + str(issues.diferencia))
+                print ('Correcto, disparador es: ' + str(issues.disparador) + 'La diferencia es :' + str(issues.diferencia))
                 subprocess.call("shutdown -r")
             else:
                 print ('Paila papa, disparador es: ' + str(issues.disparador) + ' La diferencia es :' + str(issues.diferencia))
 
+    def lees_Archivo_Config (self):
 
+        f = open(self.aplication_folder + "config.json", "r")
+        content = f.read()
+        jsondecoded = json.loads(content)
+
+        for entity in jsondecoded["Configuraciones"]:
+            self.aplication_log  = entity["Ruta_File_Log"]
+            print("Ruta log: " + self.aplication_log)
+
+        for entity in jsondecoded["Configuraciones"]:
+            self.aplication_exe = entity["Ruta_File_exe"]
+            print("Ruta exe: " + self.aplication_exe)
+
+        for entity in jsondecoded["Configuraciones"]:
+            self.ruta_file_issues = entity["Ruta_File_issues_json"]
+            print("Ruta_File_issues_json: " + self.ruta_file_issues)
+
+        print(self.aplication_log)
+        print(self.aplication_exe)
 
         #Validar por medio del log si  nxClient
         #Reiniciar NxClient
@@ -215,12 +236,14 @@ def main():
 
     validador = Validador()
     validador.escribirLog("Iniciando validador...")
-    ruta = "issues.json"
-    #validador.leer_errores(ruta)
-    #validador.contadorMultiErrores()
-    validador.tareas()
-    validador.reiniciarSonda()
+    validador.lees_Archivo_Config()
+    ruta = "C:/thales/scripts/issues.json"
+    validador.leer_errores(ruta)
+    validador.contadorMultiErrores()
+    # validador.tareas()
+    # validador.reiniciarSonda()
     validador.escribirLog("Finalizando validador...")
+
 
 
 if __name__=='__main__':
