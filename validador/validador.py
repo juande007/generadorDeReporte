@@ -3,6 +3,7 @@ import json
 import os.path
 import re
 import subprocess
+import time
 from os import path
 from datetime import datetime
 #control shift /  para comentar todo
@@ -104,45 +105,66 @@ class Validador ():
 # 	$numeroDeErroresOld
 # }
 
-    def leer_errores (self, ruta):
-        with open(self.ruta_file_issues) as file:
+    def leer_errores (self):
+
+        with open(self.ruta_file_issues, 'r') as file:
             issues_json = json.load(file)
             for issueOBJ in issues_json ['issues']:
                 self.listDeIssues.append (Issues(issueOBJ['codigo'], issueOBJ['issuesABuscar'], issueOBJ['erroresContados'], issueOBJ['numeroErroresActual'], issueOBJ['disparador']))
 
     def contadorMultiErrores (self):
-        archivoLog = open(self.aplication_log, "r")
-        for lineaDelLog in archivoLog.readlines(): # Este for recorre todas las lineas del archivo nxclient .log
-            for issues in self.listDeIssues: # para cada de log, con este FORe recorremos la lista de errores y buscamos el error en la linea
-                x = re.search(issues.issuesABuscar, lineaDelLog)
-                if x:
-                    issues.numeroErroresActual +=1
-
-        print ('Se encontro el error '+ str(issues.issuesABuscar) + 'La sumatoria de errores es'+ str(issues.numeroErroresActual))
-        archivoLog.close()
-
-        for issues in self.listDeIssues:
+        #archivoLog = open(self.aplication_log, "r")
+        # for lineaDelLog in archivoLog.readlines(): # Este for recorre todas las lineas del archivo nxclient .log
+        #     for issues in self.listDeIssues: # para cada de log, con este FORe recorremos la lista de errores y buscamos el error en la linea
+        #         x = re.search(issues.issuesABuscar, lineaDelLog)
+        #         if x:
+        #             issues.numeroErroresActual +=1
+        filename = self.aplication_log
+        file = open(filename,'r')
 
 
-            # print('Errores contados = '+ str(issues.erroresContados) + 'Errores Actuales = '+ str(issues.numeroErroresActual))
-            # issues.diferencia = int(issues.numeroErroresActual) - int(issues.erroresContados)
-
-            ruta = "C:/thales/scripts/issues.json"
-        with open(self.ruta_file_issues) as file:
-            issues_jsonB = json.load(file)
-            for issueOBJB in issues_jsonB ['issues']:
-                for issues in self.listDeIssues:
-                    if issueOBJB['codigo'] == issues.codigo:
-                        issueOBJB['numeroErroresActual']=issues.erroresContados
-                        issueOBJB['erroresContados']=issues.numeroErroresActual
-                        print('Errores contados: '+str(issues.erroresContados))
-                        print(issueOBJB['codigo'] +" Errores Contados:"+ str(issueOBJB['erroresContados']) + "errores contados en objeto"+ str(issues.numeroErroresActual))
-            print(issues_jsonB)
 
 
-        a_file = open("issues.json", "w")
-        json.dump(issues_jsonB, a_file)
-        a_file.close()
+
+        while 1:
+                where = file.tell()
+                line = file.readline()
+                if not line:
+                    time.sleep(10)
+                    try: file.seek(where)
+                    except IOError: file.seek(0)
+                    print("nada nuevo, todo es igual, la vida no tiene sentido")
+                else:
+                    print line
+
+                    for issues in self.listDeIssues: # para cada de log, con este FORe recorremos la lista de errores y buscamos el error en la linea
+                        x = re.search(issues.issuesABuscar, line)
+                        print ('Este es el issues a buscar: '+issues.issuesABuscar)
+                    #     if x:
+                    #         issues.numeroErroresActual +=1
+                    #         print ('Se encontro el error '+ str(issues.issuesABuscar) + 'La sumatoria de errores es'+ str(issues.numeroErroresActual))
+                    #         with open(self.ruta_file_issues) as file:
+                    #             issues_jsonB = json.load(file)
+                    #             for issueOBJB in issues_jsonB ['issues']:
+                    #                 for issues in self.listDeIssues:
+                    #                     if issueOBJB['codigo'] == issues.codigo:
+                    #                         issueOBJB['numeroErroresActual']=issues.erroresContados
+                    #                         issueOBJB['erroresContados']=issues.numeroErroresActual
+                    #                         # print('Errores contados: '+str(issues.erroresContados))
+                                            # print(issueOBJB['codigo'] +" Errores Contados:"+ str(issueOBJB['erroresContados']) + "errores contados en objeto"+ str(issues.numeroErroresActual))
+                                            # print(issues_jsonB)
+
+                                            #a_file = open("issues.json", "w")
+                                            #json.dump(issues_jsonB, a_file)
+                                            #   a_file.close()
+                        # print (issues.erroresContados)
+
+
+        #for issues in self.listDeIssues:
+        # print('Errores contados = '+ str(issues.erroresContados) + 'Errores Actuales = '+ str(issues.numeroErroresActual))
+        # issues.diferencia = int(issues.numeroErroresActual) - int(issues.erroresContados)
+
+
 
 
     def tareas (self):
@@ -161,7 +183,7 @@ class Validador ():
             else:
                 print ('Paila papa, disparador es: ' + str(issues.disparador) + ' La diferencia es :' + str(issues.diferencia))
 
-    def lees_Archivo_Config (self):
+    def leer_Archivo_Config (self):
 
         f = open(self.aplication_folder + "config.json", "r")
         content = f.read()
@@ -182,6 +204,19 @@ class Validador ():
         print(self.aplication_log)
         print(self.aplication_exe)
 
+
+    def timeManagemente (self):
+        filename = 'NxClient.log'
+        file = open(filename,'r')
+
+        while 1:
+            where = file.tell()
+            line = file.readline()
+            if not line:
+                time.sleep(1)
+                file.seek(where)
+            else:
+                print line, # already has newline
         #Validar por medio del log si  nxClient
         #Reiniciar NxClient
         #Si la diferencia es mayor al disparador entonces reinicia la Sondas
@@ -235,14 +270,15 @@ class Validador ():
 def main():
 
     validador = Validador()
-    validador.escribirLog("Iniciando validador...")
-    validador.lees_Archivo_Config()
-    ruta = "C:/thales/scripts/issues.json"
-    validador.leer_errores(ruta)
+    # validador.escribirLog("Iniciando validador...")
+    validador.leer_Archivo_Config()
+    # ruta = "C:/thales/scripts/issues.json"
+    validador.leer_errores()
     validador.contadorMultiErrores()
-    # validador.tareas()
-    # validador.reiniciarSonda()
-    validador.escribirLog("Finalizando validador...")
+    # # validador.tareas()
+    # # validador.reiniciarSonda()
+    # validador.escribirLog("Finalizando validador...")
+    # validador.timeManagemente ()
 
 
 

@@ -1,1 +1,31 @@
-{"issues": [{"issuesABuscar": "Late packet", "codigo": "LP", "erroresContados": 1, "numeroErroresActual": 1, "disparador": "10"}, {"issuesABuscar": "SIM failure", "codigo": "SF", "erroresContados": 0, "numeroErroresActual": 0, "disparador": "10"}, {"issuesABuscar": "Limiting DL traffic of umts", "codigo": "LDLT", "erroresContados": 118, "numeroErroresActual": 118, "disparador": "10"}, {"issuesABuscar": "SIM PIN required", "codigo": "SE", "erroresContados": 2, "numeroErroresActual": 2, "disparador": "10"}, {"issuesABuscar": "Couldn't get the name  of the port to send QMI commands", "codigo": "QMI", "erroresContados": 0, "numeroErroresActual": 0, "disparador": "10"}]}
+{
+    "issues": [{
+        "codigo": "LP", 
+        "issuesABuscar": "Late packet",
+        "numeroErroresActual": 0,
+        "erroresContados": 0,
+        "disparador": "10"}, 
+        {
+        "codigo": "SF",
+        "issuesABuscar": "SIM failure",
+        "numeroErroresActual": 0,
+        "erroresContados": 0,
+        "disparador": "10"}, 
+        {
+        "codigo": "LDLT",
+        "issuesABuscar": "Limiting DL traffic of umts",
+        "numeroErroresActual": 0,
+        "erroresContados": 0, 
+        "disparador": "10"}, 
+        {
+        "codigo": "SE",
+        "issuesABuscar": "SIM PIN required",
+        "numeroErroresActual": 0,
+        "erroresContados": 0,
+        "disparador": "10"}, 
+        {
+        "codigo": "QMI",
+        "issuesABuscar": "Couldn't get the name  of the port to send QMI commands",
+        "numeroErroresActual": 0,
+        "erroresContados": 0,
+        "disparador": "10"}]}
