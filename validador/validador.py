@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import os
 import json
 import os.path
@@ -6,15 +8,10 @@ import subprocess
 import time
 from os import path
 from datetime import datetime
-#control shift /  para comentar todo
 
-#
-# $destination_folder="C:\gemalto\scripts"
-# cd $destination_folder
-# .\variables.ps1
-#
-# difernciaStandar = 50
-# tiempoIncioNxClient = 10
+
+
+
 class Issues ():
     def __init__(self, codigo, issuesABuscar, erroresContados, numeroErroresActual, disparador):
 
@@ -27,8 +24,7 @@ class Issues ():
 
 
     def diferencias (self):
-        self.diferencia = self.erroresContados - self.numeroErroresActual
-
+        self.diferencia = self.numeroErroresActual - self.erroresContados
 
 class Validador ():
 
@@ -36,74 +32,25 @@ class Validador ():
         self.rutaLog = 'NxClient.log'
         self.nombreDelArchivo='NxClient.log'
         self.listDeIssues = []
-        #$Global:source_folder="C:\Users\Admin\Desktop\software\DINSTALL\"
-
-        destination_folder = "C:\gemalto\scripts"
-        aplication_name = "NxClient.exe"
-        #$Global:startup_folder="C:\Users\Admin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
         self.service_name = "NxClient"
-
-        #Ruta de desarrollo
-        #self.aplication_folder = "C:\Users\Admin\AppData\Local\Swiss Mobility Solutions\NxClient"
         self.aplication_folder = "C:/thales/scripts/"
-
-        #Ruta Sondas MC
-        self.aplication_folderMC = "C:\Users\AdminQoS\AppData\Local\Swiss Mobility Solutions\NxClient"
-
-        #Ruta oficial
-        #$Global:aplication_folder="C:\Program Files\Swiss Mobility Solutions\NxClient"
         self.aplication_exe = ""
         self.aplication_log = ""
         self.ruta_file_issues =""
-        aplication_exe_folderB = "C:\Program Files (x86)\Swiss Mobility Solutions\NxClient"
+        self.validarErrores= False
+        self.primerconteo = False
+
 
     def escribirLog(self,log):
-        archivo = self.aplication_folder + self.service_name + ".log"
+        archivo = self.aplication_log
 
         if path.isfile(archivo):
-            print ("Is it File")
             now = datetime.utcnow()
             date_time = now.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
             with open(archivo, "a") as f:
                 f.write("\n"+date_time+" - "+str(log))
         else:
-             print ("it is not a File")
-
-
-    # if Test-Path $fileToCheck -PathType leaf
-    #           Write-Host "La ruta es "$fileToCheck
-    #           Add-Content -Path $aplication_folder$service_name".log" -Exclude "help*" -Value text
-    # else
-    #           Write-Host "La ruta es "
-    #           Add-Content -Path $aplication_folderMC$service_name".log" -Exclude "help*" -Value text
-
-    # def leerListaErrores():
-    #
-    # Write-Host $destination_folder"\listaErrores.txt"
-	# get-content -Path $destination_folder"\listaErrores.txt" | foreach {
-	# 	$linea = $_
-	# 	if ($linea -ne "") {
-	# 		$script:ListaDeErrores.Add($linea)
-	# 		$script:numeroDeErroresActual.Add("0")
-	# 		$script:numeroDeErroresOld.Add(0)
-	# 		$script:contadores.Add(0)
-
-# def obtenerErrores_Anteriores():
-# {
-# 	$contador=0
-# 	Write-Host $destination_folder"\dbErrores.txt"
-# 	get-content -Path $destination_folder"\dbErrores.txt" | ForEach {
-# 		$numeroDeErroresAntes = $_
-# 		if ($numeroDeErroresAntes -ne '*') {
-# 			$script:numeroDeErroresOld[$contador]=$numeroDeErroresAntes
-# 		}else {
-# 		    Write-Host "No hay errores"
-# 		}
-# 		$contador=$contador+1
-#
-# 	}
-# 	$numeroDeErroresOld
-# }
+             print ("No se encontró el archivo: "+archivo)
 
     def leer_errores (self):
 
@@ -113,75 +60,53 @@ class Validador ():
                 self.listDeIssues.append (Issues(issueOBJ['codigo'], issueOBJ['issuesABuscar'], issueOBJ['erroresContados'], issueOBJ['numeroErroresActual'], issueOBJ['disparador']))
 
     def contadorMultiErrores (self):
-        #archivoLog = open(self.aplication_log, "r")
-        # for lineaDelLog in archivoLog.readlines(): # Este for recorre todas las lineas del archivo nxclient .log
-        #     for issues in self.listDeIssues: # para cada de log, con este FORe recorremos la lista de errores y buscamos el error en la linea
-        #         x = re.search(issues.issuesABuscar, lineaDelLog)
-        #         if x:
-        #             issues.numeroErroresActual +=1
         filename = self.aplication_log
         file = open(filename,'r')
-
-
-
-
-
         while 1:
                 where = file.tell()
                 line = file.readline()
-                if not line:
-                    time.sleep(10)
+                if not line: #Si no hay una nueva linea, se realiza el siguiente script
+                    if self.validarErrores:
+                        with open(self.ruta_file_issues, "r") as files:
+                            issues_jsonB = json.load(files)
+                            for issueOBJB in issues_jsonB ['issues']:
+                                for issues in self.listDeIssues:
+                                    if issueOBJB['codigo'] == issues.codigo:
+                                        issueOBJB['numeroErroresActual']=issues.numeroErroresActual
+                                        issueOBJB['erroresContados']=issues.numeroErroresActual
+                                        a_file = open(self.ruta_file_issues, "w")
+                                        json.dump(issues_jsonB, a_file)
+                                        a_file.close()
+                                        self.tareas()
+                                        self.validarErrores= False
+                                        self.primerconteo= True
+
+                    time.sleep(1)
                     try: file.seek(where)
                     except IOError: file.seek(0)
-                    print("nada nuevo, todo es igual, la vida no tiene sentido")
                 else:
-                    print line
-
+                    #print line
                     for issues in self.listDeIssues: # para cada de log, con este FORe recorremos la lista de errores y buscamos el error en la linea
                         x = re.search(issues.issuesABuscar, line)
-                        print ('Este es el issues a buscar: '+issues.issuesABuscar)
-                    #     if x:
-                    #         issues.numeroErroresActual +=1
-                    #         print ('Se encontro el error '+ str(issues.issuesABuscar) + 'La sumatoria de errores es'+ str(issues.numeroErroresActual))
-                    #         with open(self.ruta_file_issues) as file:
-                    #             issues_jsonB = json.load(file)
-                    #             for issueOBJB in issues_jsonB ['issues']:
-                    #                 for issues in self.listDeIssues:
-                    #                     if issueOBJB['codigo'] == issues.codigo:
-                    #                         issueOBJB['numeroErroresActual']=issues.erroresContados
-                    #                         issueOBJB['erroresContados']=issues.numeroErroresActual
-                    #                         # print('Errores contados: '+str(issues.erroresContados))
-                                            # print(issueOBJB['codigo'] +" Errores Contados:"+ str(issueOBJB['erroresContados']) + "errores contados en objeto"+ str(issues.numeroErroresActual))
-                                            # print(issues_jsonB)
-
-                                            #a_file = open("issues.json", "w")
-                                            #json.dump(issues_jsonB, a_file)
-                                            #   a_file.close()
-                        # print (issues.erroresContados)
-
-
-        #for issues in self.listDeIssues:
-        # print('Errores contados = '+ str(issues.erroresContados) + 'Errores Actuales = '+ str(issues.numeroErroresActual))
-        # issues.diferencia = int(issues.numeroErroresActual) - int(issues.erroresContados)
-
-
-
+                        if x:
+                            self.validarErrores= True
+                            issues.numeroErroresActual +=1
+                            print ("Error encontrado: "+str(issues.codigo) + ' = '+ str(issues.numeroErroresActual))
 
     def tareas (self):
         for issues in self.listDeIssues:
+            #print (str(issues.codigo)+' diferencia='+ str(issues.diferencia))
             issues.diferencias()
-            print ('Para el error '+ str(issues.codigo)+' la diferenciaes '+ str(issues.diferencia))
+        self.reiniciarSonda()
+
 
     def reiniciarSonda (self):
-
         for issues in self.listDeIssues:
             issues.diferencias()
-
             if issues.diferencia > issues.disparador :
-                print ('Correcto, disparador es: ' + str(issues.disparador) + 'La diferencia es :' + str(issues.diferencia))
+                #print ('Correcto, disparador es: ' + str(issues.disparador) + 'La diferencia es :' + str(issues.diferencia))
+                self.escribirLog("Reiniciando...")
                 subprocess.call("shutdown -r")
-            else:
-                print ('Paila papa, disparador es: ' + str(issues.disparador) + ' La diferencia es :' + str(issues.diferencia))
 
     def leer_Archivo_Config (self):
 
@@ -201,86 +126,14 @@ class Validador ():
             self.ruta_file_issues = entity["Ruta_File_issues_json"]
             print("Ruta_File_issues_json: " + self.ruta_file_issues)
 
-        print(self.aplication_log)
-        print(self.aplication_exe)
-
-
-    def timeManagemente (self):
-        filename = 'NxClient.log'
-        file = open(filename,'r')
-
-        while 1:
-            where = file.tell()
-            line = file.readline()
-            if not line:
-                time.sleep(1)
-                file.seek(where)
-            else:
-                print line, # already has newline
-        #Validar por medio del log si  nxClient
-        #Reiniciar NxClient
-        #Si la diferencia es mayor al disparador entonces reinicia la Sondas
-        #Hacer que el script inicie a la vesz que inicia Windows
-        #Colocar dos tareas programadas para que inicie el validador
-
-        # print (issues.codigo +': '+ str(issues.numeroErroresActual))
-        # issues.erroresContados =  issues.numeroErroresActual - issues.erroresContados
-        # print (issues.codigo +': '+ str(issues.numeroErroresActual))
-
-
-
-
-
-
-
-
-
-
-
-
-                #print("El contador es igual a: " + x + " para el error " + issue.codigo)
-
-    #     if (Test-Path $fileLog -PathType leaf){
-    #         Write-Host "Ruta de los logs"$fileLog
-    #     }
-    #     else {
-    #         $fileLog = $aplication_folderMC+$service_name+".log"
-    #         Write-Host "Ruta de los logs"$fileLog
-    #     }
-    #
-    #
-    # get-content -Path $fileLog | foreach {
-	# 	$linea = $_
-	# 	for($i=0;$i -lt $ListaDeErrores.count;$i++){
-	# 		if ($linea -like $ListaDeErrores[$i].ToString()) {
-	# 	      		$script:Contadores[$i]=$Contadores[$i]+1
-	# 		}
-	# 	}
-	# }
-#
-# 	for($i=0;$i -lt $ListaDeErrores.count;$i++){
-# 		Write-Host "Numero de Errores "$Contadores[$i]" para el error: "$ListaDeErrores[$i]
-# 	}
-#     actualizarErrores
-# }
-
-    def holamundo(self):
-        print ('Hola Mundo')
-
 def main():
 
     validador = Validador()
-    # validador.escribirLog("Iniciando validador...")
+    validador.escribirLog("Iniciando validador...")
     validador.leer_Archivo_Config()
-    # ruta = "C:/thales/scripts/issues.json"
     validador.leer_errores()
     validador.contadorMultiErrores()
-    # # validador.tareas()
-    # # validador.reiniciarSonda()
-    # validador.escribirLog("Finalizando validador...")
-    # validador.timeManagemente ()
-
-
+    validador.escribirLog("Finalizando validador...")
 
 if __name__=='__main__':
     main()
