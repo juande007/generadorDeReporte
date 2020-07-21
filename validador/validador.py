@@ -26,18 +26,17 @@ class Validador ():
     def __init__(self):
         self.rutaLog = 'NxClient.log'
         self.nombreDelArchivo='NxClient.log'
-        self.listDeIssues = []
-        self.service_name = "NxClient"
-        self.aplication_folder = "C:/thales/scripts/"
-        self.aplication_exe = ""
-        self.aplication_log = ""
-        self.ruta_file_issues =""
+        self.listadoDeIssues = []
+        self.rutaValidadorFolder= "C:/thales/scripts/"
+        self.rutaNxClientExe = ""
+        self.rutaNxClientLog = ""
+        self.rutaNxClientIssues =""
         self.validarErrores= False
         self.primerconteo = False
 
 
     def escribirLog(self,log):
-        archivo = self.aplication_log
+        archivo = self.rutaNxClientLog
 
         if path.isfile(archivo):
             now = datetime.utcnow()
@@ -48,29 +47,29 @@ class Validador ():
              print ("No se encontró el archivo: "+archivo)
 
     def leer_errores (self):
-        with open(self.ruta_file_issues, 'r') as file:
+        with open(self.rutaNxClientIssues, 'r') as file:
             issues_json = json.load(file)
             for issueOBJ in issues_json ['issues']:
-                self.listDeIssues.append (Issues(issueOBJ['codigo'], issueOBJ['issuesABuscar'], issueOBJ['erroresContados'], issueOBJ['numeroErroresActual'], issueOBJ['disparador']))
+                self.listadoDeIssues.append (Issues(issueOBJ['codigo'], issueOBJ['issuesABuscar'], issueOBJ['erroresContados'], issueOBJ['numeroErroresActual'], issueOBJ['disparador']))
 
-    def contadorMultiErrores (self):
-        filename = self.aplication_log
+    def contador_Multi_Errores (self):
+        filename = self.rutaNxClientLog
         file = open(filename,'r')
         while 1:
                 where = file.tell()
                 line = file.readline()
                 if not line: #Si no hay una nueva linea, se realiza el siguiente script
                     if self.validarErrores:
-                        with open(self.ruta_file_issues, "r") as files:
+                        with open(self.rutaNxClientIssues, "r") as files:
                             issues_jsonB = json.load(files)
                             for issueOBJB in issues_jsonB ['issues']:
-                                for issues in self.listDeIssues:
+                                for issues in self.listadoDeIssues:
                                     if issueOBJB['codigo'] == issues.codigo:
                                         issueOBJB['numeroErroresActual']=issues.numeroErroresActual
                                         issueOBJB['erroresContados']=issues.numeroErroresActual
-                                        a_file = open(self.ruta_file_issues, "w")
-                                        json.dump(issues_jsonB, a_file)
-                                        a_file.close()
+                                        archivoIssuesActualizar = open(self.rutaNxClientIssues, "w")
+                                        json.dump(issues_jsonB, archivoIssuesActualizar)
+                                        archivoIssuesActualizar.close()
                                         self.tareas()
                                         self.validarErrores= False
                                         self.primerconteo= True
@@ -80,7 +79,7 @@ class Validador ():
                     except IOError: file.seek(0)
                 else:
                     #print line
-                    for issues in self.listDeIssues: # para cada de log, con este FORe recorremos la lista de errores y buscamos el error en la linea
+                    for issues in self.listadoDeIssues: # para cada de log, con este FORe recorremos la lista de errores y buscamos el error en la linea
                         x = re.search(issues.issuesABuscar, line)
                         if x:
                             self.validarErrores= True
@@ -88,35 +87,35 @@ class Validador ():
                             print ("Error encontrado: "+str(issues.codigo) + ' = '+ str(issues.numeroErroresActual))
 
     def tareas (self):
-        for issues in self.listDeIssues:
+        for issues in self.listadoDeIssues:
             #print (str(issues.codigo)+' diferencia='+ str(issues.diferencia))
             issues.diferencias()
         self.reiniciarSonda()
 
 
     def reiniciarSonda (self):
-        for issues in self.listDeIssues:
+        for issues in self.listadoDeIssues:
             issues.diferencias()
             if issues.diferencia > issues.disparador :
                 self.escribirLog("Reiniciando...")
                 subprocess.call("shutdown -r")
 
     def leer_Archivo_Config (self):
-        f = open(self.aplication_folder + "config.json", "r")
-        content = f.read()
-        jsondecoded = json.loads(content)
+        f = open(self.rutaValidadorFolder+ "config.json", "r")
+        contenidoArchivoConfig = f.read()
+        jsondecoded = json.loads(contenidoArchivoConfig)
 
-        for entity in jsondecoded["Configuraciones"]:
-            self.aplication_log  = entity["Ruta_File_Log"]
-            print("Ruta log: " + self.aplication_log)
+        for lineaArchivoConfig in jsondecoded["Configuraciones"]:
+            self.rutaNxClientLog  = lineaArchivoConfig["Ruta_File_Log"]
+            print("Ruta log: " + self.rutaNxClientLog)
 
-        for entity in jsondecoded["Configuraciones"]:
-            self.aplication_exe = entity["Ruta_File_exe"]
-            print("Ruta exe: " + self.aplication_exe)
+        for lineaArchivoConfig in jsondecoded["Configuraciones"]:
+            self.rutaNxClientExe = lineaArchivoConfig["Ruta_File_exe"]
+            print("Ruta exe: " + self.rutaNxClientExe)
 
-        for entity in jsondecoded["Configuraciones"]:
-            self.ruta_file_issues = entity["Ruta_File_issues_json"]
-            print("Ruta_File_issues_json: " + self.ruta_file_issues)
+        for lineaArchivoConfig in jsondecoded["Configuraciones"]:
+            self.rutaNxClientIssues = lineaArchivoConfig["Ruta_File_issues_json"]
+            print("Ruta issues: " + self.rutaNxClientIssues)
 
 def main():
 
@@ -124,7 +123,7 @@ def main():
     validador.escribirLog("Iniciando validador...")
     validador.leer_Archivo_Config()
     validador.leer_errores()
-    validador.contadorMultiErrores()
+    validador.contador_Multi_Errores()
     validador.escribirLog("Finalizando validador...")
 
 if __name__=='__main__':
