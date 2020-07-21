@@ -9,9 +9,6 @@ import time
 from os import path
 from datetime import datetime
 
-
-
-
 class Issues ():
     def __init__(self, codigo, issuesABuscar, erroresContados, numeroErroresActual, disparador):
 
@@ -21,8 +18,6 @@ class Issues ():
         self.numeroErroresActual = 0
         self.disparador = disparador
         self.diferencia = 0
-
-
     def diferencias (self):
         self.diferencia = self.numeroErroresActual - self.erroresContados
 
@@ -53,7 +48,6 @@ class Validador ():
              print ("No se encontró el archivo: "+archivo)
 
     def leer_errores (self):
-
         with open(self.ruta_file_issues, 'r') as file:
             issues_json = json.load(file)
             for issueOBJ in issues_json ['issues']:
@@ -104,12 +98,10 @@ class Validador ():
         for issues in self.listDeIssues:
             issues.diferencias()
             if issues.diferencia > issues.disparador :
-                #print ('Correcto, disparador es: ' + str(issues.disparador) + 'La diferencia es :' + str(issues.diferencia))
                 self.escribirLog("Reiniciando...")
                 subprocess.call("shutdown -r")
 
     def leer_Archivo_Config (self):
-
         f = open(self.aplication_folder + "config.json", "r")
         content = f.read()
         jsondecoded = json.loads(content)
