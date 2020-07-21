@@ -23,10 +23,11 @@ class Instalador ():
                 bat_file.write(r'start "" %s' % rutaTareaProgramada)
 
         rutaValidador = "C:/thales/scripts/"
-            #rutaArchivoLog = "C:\Users\AdminQoS\AppData\Local\Swiss Mobility Solutions\NxClient.log"
-        rutaArchivoLog = "C:\Users\AdminQoS\AppData\Local\Swiss Mobility Solutions\NxClient\NxClient.log"
-        ruta_logs_Dos = "C:\Users\Niko\AppData\Local\Swiss Mobility Solutions\NxClient\Nxclient.log"
-        ruta_logs_Tres = "C:\Users\AdminQoS\AppData\Local\Swiss Mobility Solutions\NxClient\NxClient.log"
+        usuario = getpass.getuser()
+        rutaArchivoLog = "C:/Users/" +usuario+ "\AppData\Local\Swiss Mobility Solutions\NxClient\NxClient.log"
+        # ruta_logs_Dos = "C:\Users\Niko\AppData\Local\Swiss Mobility Solutions\NxClient\Nxclient.log"
+        # ruta_logs_Tres = "C:\Users\Admin\AppData\Local\Swiss Mobility Solutions\NxClient\NxClient.log"
+
 
         if os.path.isfile(rutaArchivoLog):
             print ("la ruta escrita en config.json es: "+ rutaArchivoLog)
@@ -71,7 +72,57 @@ class Instalador ():
 
         print ("Guardado con exito")
 
-#C:\gemalto\scripts
+        issue = {}
+        issue ['issues'] =[]
+        issue ['issues'].append({
+        "codigo": "LP",
+        "issuesABuscar": "Late packet",
+        "numeroErroresActual": 0,
+        "erroresContados": 0,
+        "disparador": 50
+        })
+        issue ['issues'].append({
+        "codigo": "SF",
+        "issuesABuscar": "SIM failure",
+        "numeroErroresActual": 0,
+        "erroresContados": 0,
+        "disparador": 50
+        })
+        issue ['issues'].append({
+        "codigo": "LDLT",
+        "issuesABuscar": "Limiting DL traffic of umts",
+        "numeroErroresActual": 0,
+        "erroresContados": 0,
+        "disparador": 30
+        })
+        issue ['issues'].append({
+        "codigo": "SE",
+        "issuesABuscar": "SIM PIN required",
+        "numeroErroresActual": 0,
+        "erroresContados": 0,
+        "disparador": 30
+        })
+        issue ['issues'].append({
+        "codigo": "QMI",
+        "issuesABuscar": "Couldn't get the name  of the port to send QMI commands",
+        "numeroErroresActual": 0,
+        "erroresContados": 0,
+        "disparador": 30
+        })
+        issue ['issues'].append({
+        "codigo": "GTO",
+        "issuesABuscar": "getConnectionToken has timed out 100 times",
+        "numeroErroresActual": 0,
+        "erroresContados": 0,
+        "disparador": 20
+        })
+
+        rutaValidador = "C:/thales/scripts/"
+        archivoIssues = 'issues.json'
+        with open(os.path.join(rutaValidador, archivoIssues), 'w') as file:
+            json.dump(issue, file, indent=4)
+
+        print ("Guardado con exito")
 def main():
     install = Instalador ()
     install.instalador()
