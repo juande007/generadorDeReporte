@@ -98,7 +98,7 @@ class Validador ():
             issues.diferencias()
             if issues.diferencia > issues.disparador :
                 self.escribirLog("Reiniciando...")
-                subprocess.call("shutdown -r")
+                subprocess.call("shutdown -r -f")
 
     def leer_Archivo_Config (self):
         f = open(self.rutaValidadorFolder+ "config.json", "r")
