@@ -32,6 +32,7 @@ class Validador ():
         self.rutaNxClientLog = ""
         self.rutaNxClientIssues =""
         self.validarErrores= False
+        self.primerConteo = True
 
 
     def escribirLog(self,log):
@@ -58,6 +59,12 @@ class Validador ():
                 where = file.tell()
                 line = file.readline()
                 if not line: #Si no hay una nueva linea, se realiza el siguiente script
+                    if self.primerConteo:   #Tras realizado el primer conteo, en este if se valida si hubo rotado de log.
+                        self.primerConteo = False
+                        for issues in self.listadoDeIssues:
+                            if issues.numeroErroresActual < issues.erroresContados:
+                                issues.erroresContados = 0
+
                     if self.validarErrores:
                         with open(self.rutaNxClientIssues, "r") as files:
                             issues_jsonB = json.load(files)
@@ -82,14 +89,12 @@ class Validador ():
                         if x:
                             self.validarErrores= True
                             issues.numeroErroresActual +=1
-                            print ("Error encontrado: "+str(issues.codigo) + ' = '+ str(issues.numeroErroresActual))
+                            print ("Contador, issue Id "+str(issues.codigo) + ' = '+ str(issues.numeroErroresActual))
 
     def tareas (self):
         for issues in self.listadoDeIssues:
-            #print (str(issues.codigo)+' diferencia='+ str(issues.diferencia))
             issues.diferencias()
         self.reiniciarSonda()
-
 
     def reiniciarSonda (self):
         for issues in self.listadoDeIssues:

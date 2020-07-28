@@ -12,7 +12,6 @@ class Instalador ():
             os.makedirs(rutaValidador)
 
         shutil.copy("validador.py", rutaValidador)
-        shutil.copy("issues.json", rutaValidador)
         print("la ruta que va a crear es " + rutaValidador )
         rutaTareaProgramada = "C:/thales/scripts/validador.py"
 
@@ -20,7 +19,7 @@ class Instalador ():
             rutaTareaProgramada = os.path.dirname(os.path.realpath(__file__))
         rutaArchivoDeIniciacion = r'C:\Users\%s\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup' % USER_NAME
         with open(rutaArchivoDeIniciacion + '\\' + "inicia_validador.bat", "w+") as bat_file:
-                bat_file.write(r'start "" %s' % rutaTareaProgramada)
+                bat_file.write(r'C:\python27\python.exe %s' % rutaTareaProgramada)
 
         rutaValidador = "C:/thales/scripts/"
         usuario = getpass.getuser()
@@ -31,12 +30,12 @@ class Instalador ():
 
         if os.path.isfile(rutaArchivoLog):
             print ("la ruta escrita en config.json es: "+ rutaArchivoLog)
-        elif os.path.isfile(ruta_logs_Dos):
-            print ("la ruta escrita en config.json es: "+ ruta_logs_Dos)
-            rutaArchivoLog = ruta_logs_Dos
-        elif os.path.isfile(ruta_logs_Tres):
-            print ("la ruta escrita en config.json es: "+ ruta_logs_Tres)
-            rutaArchivoLog = ruta_logs_Tres
+        # elif os.path.isfile(ruta_logs_Dos):
+        #     print ("la ruta escrita en config.json es: "+ ruta_logs_Dos)
+        #     rutaArchivoLog = ruta_logs_Dos
+        # elif os.path.isfile(ruta_logs_Tres):
+        #     print ("la ruta escrita en config.json es: "+ ruta_logs_Tres)
+        #     rutaArchivoLog = ruta_logs_Tres
         else:
             print("No se pudo encontrar ningun archivo .log")
 
@@ -107,7 +106,7 @@ class Instalador ():
         "issuesABuscar": "Couldn't get the name  of the port to send QMI commands",
         "numeroErroresActual": 0,
         "erroresContados": 0,
-        "disparador": 30
+        "disparador": 3
         })
         issue ['issues'].append({
         "codigo": "GTO",
