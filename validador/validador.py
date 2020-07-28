@@ -32,7 +32,6 @@ class Validador ():
         self.rutaNxClientLog = ""
         self.rutaNxClientIssues =""
         self.validarErrores= False
-        self.primerconteo = False
 
 
     def escribirLog(self,log):
@@ -71,8 +70,7 @@ class Validador ():
                                         json.dump(issues_jsonB, archivoIssuesActualizar)
                                         archivoIssuesActualizar.close()
                                         self.tareas()
-                                        self.validarErrores= False
-                                        self.primerconteo= True
+                                        self.validarErrores= False #bool
 
                     time.sleep(1)
                     try: file.seek(where)
@@ -107,21 +105,17 @@ class Validador ():
 
         for lineaArchivoConfig in jsondecoded["Configuraciones"]:
             self.rutaNxClientLog  = lineaArchivoConfig["Ruta_File_Log"]
-            print("Ruta log: " + self.rutaNxClientLog)
-
-        for lineaArchivoConfig in jsondecoded["Configuraciones"]:
             self.rutaNxClientExe = lineaArchivoConfig["Ruta_File_exe"]
-            print("Ruta exe: " + self.rutaNxClientExe)
-
-        for lineaArchivoConfig in jsondecoded["Configuraciones"]:
             self.rutaNxClientIssues = lineaArchivoConfig["Ruta_File_issues_json"]
+            print("Ruta log: " + self.rutaNxClientLog)
+            print("Ruta exe: " + self.rutaNxClientExe)
             print("Ruta issues: " + self.rutaNxClientIssues)
 
 def main():
 
     validador = Validador()
-    validador.escribirLog("Iniciando validador...")
     validador.leer_Archivo_Config()
+    validador.escribirLog("Iniciando validador...")
     validador.leer_errores()
     validador.contador_Multi_Errores()
     validador.escribirLog("Finalizando validador...")
