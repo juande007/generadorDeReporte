@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+      <title>Hola Mundo</title>
+      <link rel="stylesheet" href="css/main.css">
+      <script type='text/javascript' src='/eel.js'></script>
+      <script type='text/javascript'>
+
+      async function pick_file() {
+          let comando = document.getElementById('input-box').value;
+          let file_div = document.getElementById('file-name');
+
+          // Call into Python so we can access the file system
+          let random_filename = await eel.pick_file(comando)();
+          file_div.innerHTML = random_filename;
+      }
+
+
+      async function clientes() {
+          let div_clientes = document.getElementById('div_clientes');
+          let clientes = await eel.clientes()();
+
+          div_clientes.innerHTML = clientes;
+          // console.log(clientes);
+          return "hola";
+      }
+      </script>
+  </head>
+  <body>
+    <h1 id='file-name'>Generador de Reportes</h1>
+    <form onsubmit="pick_file(); return false;" >
+      <input id='input-box' placeholder='Ejemplo:Tigoco 3322'>
+      <button type="submit">Buscar</button>
+    </form>
+    <!-- <form onsubmit="clientes(); return false;" > -->
+    <button onclick="clientes()">Click me</button>
+    <!-- </form> -->
+    <div id='div_clientes'><div>
+  </body>
+</html>
