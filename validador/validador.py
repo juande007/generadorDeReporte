@@ -6,8 +6,12 @@ import os.path
 import re
 import subprocess
 import time
+import shutil
+import datetime as elTiempo
 from os import path
 from datetime import datetime
+from datetime import datetime as date
+
 
 class Issues ():
     def __init__(self, codigo, issuesABuscar, erroresContados, numeroErroresActual, disparador):
@@ -30,21 +34,28 @@ class Validador ():
         self.rutaValidadorFolder= "C:/thales/scripts/"
         self.rutaNxClientExe = ""
         self.rutaNxClientLog = ""
+        self.ruta_File_validador_log = ""
         self.rutaNxClientIssues =""
         self.validarErrores= False
         self.primerConteo = True
-
+        self.day= date.today().strftime("%A")
+        self.fechaUltimoReinicio = ""
+        self.horaUltimoReinicio = ""
+        self.cdReinicios = 0
+        self.reiniciar = False
+        self.diferenciaUltimoRegistroActual = 0
 
     def escribirLog(self,log):
-        archivo = self.rutaNxClientLog
+        # archivo = "C:/thales/scripts/validador.log"
 
-        if path.isfile(archivo):
+        if path.isfile(self.ruta_File_validador_log):
             now = datetime.utcnow()
             date_time = now.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
-            with open(archivo, "a") as f:
+            with open(self.ruta_File_validador_log, "a") as f:
                 f.write("\n"+date_time+" - "+str(log))
+                f.close()
         else:
-             print ("No se encontró el archivo: "+archivo)
+             print ("No se encontró el archivo: ")
 
     def leer_errores (self):
         with open(self.rutaNxClientIssues, 'r') as file:
@@ -76,10 +87,11 @@ class Validador ():
                                         archivoIssuesActualizar = open(self.rutaNxClientIssues, "w")
                                         json.dump(issues_jsonB, archivoIssuesActualizar)
                                         archivoIssuesActualizar.close()
-                                        self.tareas()
-                                        self.validarErrores= False #bool
+                            self.tareas()
+                            self.validarErrores= False #bool
 
-                    time.sleep(1)
+                    time.sleep(10)
+                    self.rotado_de_logs()
                     try: file.seek(where)
                     except IOError: file.seek(0)
                 else:
@@ -100,8 +112,74 @@ class Validador ():
         for issues in self.listadoDeIssues:
             issues.diferencias()
             if issues.diferencia > issues.disparador :
-                self.escribirLog("Reiniciando...")
-                subprocess.call("shutdown -r -f")
+                print("inicia proceso de reinicios....")
+
+                fechaActual = elTiempo.datetime.now()
+                horaActual = elTiempo.datetime.now()
+                print("Fecha actual: "+ str(fechaActual))
+                print("Hora actual: "+ str(horaActual))
+                # hoy = date.today()  # Asigna fecha actual
+                # ayer = hoy – timedelta(days=1)  # Resta a fecha actual 1 día
+                # mañana = hoy + timedelta(days=1)  # Suma a fecha actual 1 día
+                # diferencia_en_dias = mañana – hoy  # Resta las dos fechas
+
+                a = open(self.rutaValidadorFolder + "reinicios.json", "r")
+                contenidoArchivoReinicio = a.read()
+                jsondecoded = json.loads(contenidoArchivoReinicio)
+
+                for lineaArchivoReinicio in jsondecoded["Reinicio"]:
+                    self.horaUltimoReinicio = lineaArchivoReinicio["horaUltimoReinicio"]
+                    self.fechaUltimoReinicio = lineaArchivoReinicio["fechaUltimoReinicio"]
+                    self.contadorReinicios = lineaArchivoReinicio["contadorReinicios"]
+
+                    print("Hora ultimo reinicio "+ str(self.horaUltimoReinicio))
+                    print("Fecha ultimo reinicio "+ str(self.fechaUltimoReinicio))
+                    print("Contador de reinicio "+ str(self.contadorReinicios))
+
+                if self.fechaUltimoReinicio == 0:
+                    self.fechaUltimoReinicio = fechaActual
+                if self.horaUltimoReinicio == 0:
+                    self.horaUltimoReinicio = horaActual
+
+                if fechaActual == self.fechaUltimoReinicio:
+                    self.diferenciaUltimoRegistroActual = (self.horaUltimoReinicio - horaActual).seconds
+                    print(type(self.diferenciaUltimoRegistroActual))
+
+                res = self.diferenciaUltimoRegistroActual
+                if res <= 3600:
+                    self.cdReinicios +=1
+                    with open("C:/thales/scripts/reinicios.json", "r") as files:
+                        reiniciosJson = json.load(files)
+                        for reinicioJSON in reiniciosJson ["Reinicio"]:
+                            reinicioJSON["contadorReinicios"] =self.cdReinicios
+                            reinicioJSON["horaUltimoReinicio"]=str(self.horaUltimoReinicio)
+                            reinicioJSON["fechaUltimoReinicio"]=str(self.fechaUltimoReinicio)
+                            archivoReiniciosActualizar = open("C:/thales/scripts/reinicios.json", "w")
+                            json.dump(reiniciosJson, archivoReiniciosActualizar)
+                            archivoReiniciosActualizar.close()
+                if res <= 3600 and self.cdReinicios <= 3:
+                    self.escribirLog("Reiniciando cumple luego menos de una hora y menos de 3 reinicios")
+                    #subprocess.call("shutdown -r -f")
+                    #break
+                elif res >= 10800 and self.cdReinicios > 3:
+                        self.cdReinicios = 0
+                        self.escribirLog("Reiniciando luego de 3 horas sin reiniciar o algun error")
+                        #subprocess.call("shutdown -r -f")
+                        #break
+# actual1 = datetime.datetime.now()
+# actual2 = datetime.datetime.now()
+#
+# diferencia = actual2 - actual1
+#
+# print(diferencia.days)
+# print(diferencia.seconds)
+#
+# print(diferencia.total_seconds())
+                # self.escribirLog(str(issues.diferencia) +" es mayor que "+ str(issues.disparador))
+                # self.escribirLog("Reiniciando...")
+                # subprocess.call("shutdown -r -f")
+
+
 
     def leer_Archivo_Config (self):
         f = open(self.rutaValidadorFolder+ "config.json", "r")
@@ -112,18 +190,42 @@ class Validador ():
             self.rutaNxClientLog  = lineaArchivoConfig["Ruta_File_Log"]
             self.rutaNxClientExe = lineaArchivoConfig["Ruta_File_exe"]
             self.rutaNxClientIssues = lineaArchivoConfig["Ruta_File_issues_json"]
+            self.ruta_File_validador_log = lineaArchivoConfig["Ruta_File_validador_log"]
             print("Ruta log: " + self.rutaNxClientLog)
             print("Ruta exe: " + self.rutaNxClientExe)
             print("Ruta issues: " + self.rutaNxClientIssues)
+            print("Ruta validador.log: " + self.ruta_File_validador_log)
+
+    def administracion_De_Tiempo(self):
+        self.leer_Archivo_Config()
+        self.escribirLog("Iniciando validador...")
+        self.leer_errores()
+        self.contador_Multi_Errores()
+        self.escribirLog("Finalizando validador...")
+
+    def rotado_de_logs(self):
+        dayNew =date.today().strftime("%A")
+        if self.day == str(dayNew):
+            self.day = str(date.today().strftime("%A"))
+
+        else:
+            self.day = str(date.today().strftime("%A"))
+            print("Hacemos el rotado de logs")
+            print("El dia es diferente "+ self.day)
+            rutaValidador = "C:/thales/scripts/validador.log"+"."+self.day
+            shutil.copy("C:/thales/scripts/validador.log", rutaValidador)
+            with open("C:/thales/scripts/validador.log", 'w'):
+                pass
 
 def main():
 
     validador = Validador()
-    validador.leer_Archivo_Config()
-    validador.escribirLog("Iniciando validador...")
-    validador.leer_errores()
-    validador.contador_Multi_Errores()
-    validador.escribirLog("Finalizando validador...")
+    validador.administracion_De_Tiempo()
+    # validador.leer_Archivo_Config()
+    # validador.escribirLog("Iniciando validador...")
+    # validador.leer_errores()
+    # validador.contador_Multi_Errores()
+    # validador.escribirLog("Finalizando validador...")
 
 if __name__=='__main__':
     main()

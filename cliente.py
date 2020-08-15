@@ -23,12 +23,16 @@ class Cliente(object):
         else:
             eliminar_cliente()
         #Esta funcion muestra todos los clientes existentes
+
     def mostrar_clientes(self):
-        print('L I S T A  D E  C L I E N T E S')
+        contenido = []
         dir = "./Clientes"
         contenido = os.listdir(dir)
-        print(contenido)
+        print(type(contenido))
+        for element in contenido:
+            print element
         return contenido
+
         #Esta funcion crea un nuevo cliente con sus respectivos atributos
     def agregar_Cliente():
         print ('Nuevo cliente.\n')

@@ -24,18 +24,15 @@ class Instalador ():
         rutaValidador = "C:/thales/scripts/"
         usuario = getpass.getuser()
         rutaArchivoLog = "C:/Users/" +usuario+ "\AppData\Local\Swiss Mobility Solutions\NxClient\NxClient.log"
-        # ruta_logs_Dos = "C:\Users\Niko\AppData\Local\Swiss Mobility Solutions\NxClient\Nxclient.log"
-        # ruta_logs_Tres = "C:\Users\Admin\AppData\Local\Swiss Mobility Solutions\NxClient\NxClient.log"
 
+        f = open("C:/thales/scripts/validador.log", "w")
+        f. close()
+        print ("Se creo archivo log con exito")
+
+        ruta_File_validador_log = "C:/thales/scripts/validador.log"
 
         if os.path.isfile(rutaArchivoLog):
             print ("la ruta escrita en config.json es: "+ rutaArchivoLog)
-        # elif os.path.isfile(ruta_logs_Dos):
-        #     print ("la ruta escrita en config.json es: "+ ruta_logs_Dos)
-        #     rutaArchivoLog = ruta_logs_Dos
-        # elif os.path.isfile(ruta_logs_Tres):
-        #     print ("la ruta escrita en config.json es: "+ ruta_logs_Tres)
-        #     rutaArchivoLog = ruta_logs_Tres
         else:
             print("No se pudo encontrar ningun archivo .log")
 
@@ -62,7 +59,8 @@ class Instalador ():
         config ['Configuraciones'].append({
         'Ruta_File_Log': rutaArchivoLog,
         'Ruta_File_exe': ruta_File_exe,
-        'Ruta_File_issues_json':ruta_file_issues
+        'Ruta_File_issues_json':ruta_file_issues,
+        'Ruta_File_validador_log':ruta_File_validador_log
         })
 
         archivoConfig = 'config.json'
@@ -122,6 +120,20 @@ class Instalador ():
             json.dump(issue, file, indent=4)
 
         print ("Guardado con exito")
+
+        reinicios = {}
+        reinicios ['Reinicio'] = []
+        reinicios ['Reinicio'].append({
+        "horaUltimoReinicio": 0,
+        "fechaUltimoReinicio": 0,
+        "contadorReinicios": 0
+        })
+
+        rutaValidador = "C:/thales/scripts/"
+        archivoReinicios = 'reinicios.json'
+        with open(os.path.join(rutaValidador, archivoReinicios), 'w') as file:
+            json.dump(reinicios, file, indent=4)
+
 def main():
     install = Instalador ()
     install.instalador()

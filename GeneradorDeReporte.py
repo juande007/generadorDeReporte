@@ -9,20 +9,15 @@ def tarea(comando):
 	matcher = patron.search(palabra)
 	cliente = matcher.group()
 	print ('El cliente es: ' + cliente)
-	patron = re.compile('(\s)([0-9]+)')
-	matcher = patron.search(palabra)
-	matcher.groups()
-	id_sonda = matcher.group(0)
-	print ('La sonda es: ' + id_sonda)
-	#En este codigo se llama la clase Cliente y la funcion buscar cliente
-	# objetoCliente = Cliente("tigo","test")
-	# print(objetoCliente.buscar_cliente())
-	return cliente
+	regex = '\d+'
+	match = re.findall(regex, comando)
+	print(match)
+	return match
 
 def listadoDeClientes():
 	cliente=Cliente("test","test2")
 	x=cliente.mostrar_clientes()
-	return "resultado :"+str(x)
+	return x
 
 
 def main():
