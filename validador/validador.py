@@ -67,6 +67,8 @@ class Validador ():
         filename = self.rutaNxClientLog
         file = open(filename,'r')
         while 1:
+                #self.escribirLog("Nuevo ciclo")
+                print(".")
                 where = file.tell()
                 line = file.readline()
                 if not line: #Si no hay una nueva linea, se realiza el siguiente script
@@ -77,6 +79,7 @@ class Validador ():
                                 issues.erroresContados = 0
 
                     if self.validarErrores:
+                        print("validando errore")
                         with open(self.rutaNxClientIssues, "r") as files:
                             issues_jsonB = json.load(files)
                             for issueOBJB in issues_jsonB ['issues']:
@@ -87,21 +90,25 @@ class Validador ():
                                         archivoIssuesActualizar = open(self.rutaNxClientIssues, "w")
                                         json.dump(issues_jsonB, archivoIssuesActualizar)
                                         archivoIssuesActualizar.close()
+                                        self.escribirLog(str(issueOBJB['codigo'])+":"+str(issueOBJB['numeroErroresActual']))
                             self.tareas()
                             self.validarErrores= False #bool
 
-                    time.sleep(10)
+                    time.sleep(1)
                     self.rotado_de_logs()
                     try: file.seek(where)
                     except IOError: file.seek(0)
                 else:
-                    #print line
+                    print line
                     for issues in self.listadoDeIssues: # para cada de log, con este FORe recorremos la lista de errores y buscamos el error en la linea
+                        print("Error a buscar "+str(issues.issuesABuscar))
                         x = re.search(issues.issuesABuscar, line)
                         if x:
                             self.validarErrores= True
                             issues.numeroErroresActual +=1
                             print ("Contador, issue Id "+str(issues.codigo) + ' = '+ str(issues.numeroErroresActual))
+                        else:
+                            print("error no encontrado")
 
     def tareas (self):
         for issues in self.listadoDeIssues:
@@ -128,25 +135,31 @@ class Validador ():
                 jsondecoded = json.loads(contenidoArchivoReinicio)
 
                 for lineaArchivoReinicio in jsondecoded["Reinicio"]:
-                    self.horaUltimoReinicio = lineaArchivoReinicio["horaUltimoReinicio"]
-                    self.fechaUltimoReinicio = lineaArchivoReinicio["fechaUltimoReinicio"]
+                    #
+                    if lineaArchivoReinicio["horaUltimoReinicio"] == 0:
+                        self.horaUltimoReinicio = horaActual
+                        self.fechaUltimoReinicio = fechaActual
+                    else:
+                        self.horaUltimoReinicio = datetime.strptime(lineaArchivoReinicio["horaUltimoReinicio"], '%Y-%m-%d %H:%M:%S.%f')
+                        self.fechaUltimoReinicio=datetime.strptime(lineaArchivoReinicio["fechaUltimoReinicio"], '%Y-%m-%d %H:%M:%S.%f')
                     self.contadorReinicios = lineaArchivoReinicio["contadorReinicios"]
 
-                    print("Hora ultimo reinicio "+ str(self.horaUltimoReinicio))
-                    print("Fecha ultimo reinicio "+ str(self.fechaUltimoReinicio))
-                    print("Contador de reinicio "+ str(self.contadorReinicios))
 
-                if self.fechaUltimoReinicio == 0:
-                    self.fechaUltimoReinicio = fechaActual
-                if self.horaUltimoReinicio == 0:
-                    self.horaUltimoReinicio = horaActual
+                print("Hora ultimo reinicio "+ str(self.horaUltimoReinicio))
+                print("Fecha ultimo reinicio "+ str(self.fechaUltimoReinicio))
+                print("Contador de reinicio "+ str(self.contadorReinicios))
+
 
                 if fechaActual == self.fechaUltimoReinicio:
                     self.diferenciaUltimoRegistroActual = (self.horaUltimoReinicio - horaActual).seconds
                     print(type(self.diferenciaUltimoRegistroActual))
+                else:
+                    print("La fecha actual es igual al ultimo reinicio")
 
                 res = self.diferenciaUltimoRegistroActual
-                if res <= 3600:
+                tiempo_Entre_Reinicios = 180
+                print("L< diferencia en segundo es "+str(res))
+                if res <= tiempo_Entre_Reinicios:
                     self.cdReinicios +=1
                     with open("C:/thales/scripts/reinicios.json", "r") as files:
                         reiniciosJson = json.load(files)
@@ -157,15 +170,17 @@ class Validador ():
                             archivoReiniciosActualizar = open("C:/thales/scripts/reinicios.json", "w")
                             json.dump(reiniciosJson, archivoReiniciosActualizar)
                             archivoReiniciosActualizar.close()
-                if res <= 3600 and self.cdReinicios <= 3:
-                    self.escribirLog("Reiniciando cumple luego menos de una hora y menos de 3 reinicios")
-                    #subprocess.call("shutdown -r -f")
-                    #break
-                elif res >= 10800 and self.cdReinicios > 3:
+                if res <= tiempo_Entre_Reinicios and self.cdReinicios <= 3:
+                    self.escribirLog("**********************************Reiniciando cumple luego menos de una hora y menos de 3 reinicios")
+                    print("********************ENTRO AL PRIMER IF DE REINICIOS********************")
+                    # subprocess.call("shutdown -r -f")
+                    # break
+                elif res >= 180 and self.cdReinicios > 3:
                         self.cdReinicios = 0
-                        self.escribirLog("Reiniciando luego de 3 horas sin reiniciar o algun error")
-                        #subprocess.call("shutdown -r -f")
-                        #break
+                        self.escribirLog("*********************Reiniciando luego de 3 horas sin reiniciar o algun error")
+                        print("********************ENTRO AL SEGUNDO IF DE REINICIOS********************")
+                        # subprocess.call("shutdown -r -f")
+                        # break
 # actual1 = datetime.datetime.now()
 # actual2 = datetime.datetime.now()
 #
