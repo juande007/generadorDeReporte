@@ -68,7 +68,7 @@ class Validador ():
         file = open(filename,'r')
         while 1:
                 #self.escribirLog("Nuevo ciclo")
-                print(".")
+
                 where = file.tell()
                 line = file.readline()
                 if not line: #Si no hay una nueva linea, se realiza el siguiente script
@@ -118,7 +118,7 @@ class Validador ():
     def reiniciarSonda (self):
         for issues in self.listadoDeIssues:
             issues.diferencias()
-            if issues.diferencia > issues.disparador :
+            if issues.diferencia >= issues.disparador :
                 fechaActual = elTiempo.datetime.now()
                 horaActual = elTiempo.datetime.now()
 
@@ -130,23 +130,44 @@ class Validador ():
                     if lineaArchivoReinicio["horaUltimoReinicio"] == 0:
                         self.horaUltimoReinicio = horaActual
                         self.fechaUltimoReinicio = fechaActual
+                        self.cdReinicios=0
+                        print("ES LA PRIMER CORRIDA")
                     else:
                         self.horaUltimoReinicio = datetime.strptime(lineaArchivoReinicio["horaUltimoReinicio"], '%Y-%m-%d %H:%M:%S.%f')
                         self.fechaUltimoReinicio=datetime.strptime(lineaArchivoReinicio["fechaUltimoReinicio"], '%Y-%m-%d %H:%M:%S.%f')
-                    self.contadorReinicios = lineaArchivoReinicio["contadorReinicios"]
+                        self.cdReinicios = lineaArchivoReinicio["contadorReinicios"]
+                    print("Reinicio >"+ str(self.horaUltimoReinicio))
+                    print("Fecha    >"+ str(self.fechaUltimoReinicio))
+                    print("Contador de reinicios "+ str(self.cdReinicios))
 
-                print("Reinicio "+ str(self.horaUltimoReinicio))
-                print("Fecha "+ str(self.fechaUltimoReinicio))
-                print("Contador de reinicios "+ str(self.contadorReinicios))
 
 
-                self.diferenciaUltimoRegistroActual = (self.horaUltimoReinicio - horaActual).seconds
-                print("Tiempo entre reinicios: "+self.diferenciaUltimoRegistroActual+".seconds.................................................")
+
+                self.diferenciaUltimoRegistroActual = (horaActual - self.horaUltimoReinicio  ).seconds
+                print("Tiempo entre reinicios: "+ str(self.diferenciaUltimoRegistroActual) +".seconds.................................................")
 
                 res = self.diferenciaUltimoRegistroActual
-                tiempo_Entre_Reinicios = 180
+                tiempo_Entre_Reinicios = 60
                 if res <= tiempo_Entre_Reinicios:
+                     self.horaUltimoReinicio = horaActual
+                     self.fechaUltimoReinicio = fechaActual
+                     # with open("C:/thales/scripts/reinicios.json", "r") as files:
+                     #     reiniciosJson = json.load(files)
+                     #     for reinicioJSON in reiniciosJson ["Reinicio"]:
+                     #         reinicioJSON["contadorReinicios"] =self.cdReinicios
+                     #         reinicioJSON["horaUltimoReinicio"]=str(self.horaUltimoReinicio)
+                     #         reinicioJSON["fechaUltimoReinicio"]=str(self.fechaUltimoReinicio)
+                     #         archivoReiniciosActualizar = open("C:/thales/scripts/reinicios.json", "w")
+                     #         json.dump(reiniciosJson, archivoReiniciosActualizar)
+                     #         archivoReiniciosActualizar.close()
+                     #         break
+
+                elif res >= tiempo_Entre_Reinicios and self.cdReinicios <= 3:
+                    self.escribirLog("Reiniciando, cumple con al menos una hora y menos de 3 reinicios.........................................")
+                    print("Reiniciando, cumple con al menos una hora y menos de 3 reinicios.........................................")
                     self.cdReinicios +=1
+                    self.horaUltimoReinicio = horaActual
+                    self.fechaUltimoReinicio = fechaActual
                     with open("C:/thales/scripts/reinicios.json", "r") as files:
                         reiniciosJson = json.load(files)
                         for reinicioJSON in reiniciosJson ["Reinicio"]:
@@ -156,18 +177,27 @@ class Validador ():
                             archivoReiniciosActualizar = open("C:/thales/scripts/reinicios.json", "w")
                             json.dump(reiniciosJson, archivoReiniciosActualizar)
                             archivoReiniciosActualizar.close()
-                else print("Debe haber una diferencia de tres minutos....")
-
-                if res <= tiempo_Entre_Reinicios and self.cdReinicios <= 3:
-                    self.escribirLog("Reiniciando cumple luego menos de una hora y menos de 3 reinicios.........................................")
-                    print("Reiniciando cumple luego menos de una hora y menos de 3 reinicios.........................................")
                     # subprocess.call("shutdown -r -f")
                     # break
-                elif res >= 180 and self.cdReinicios > 3:
+                elif res >= tiempo_Entre_Reinicios and self.cdReinicios > 3:
+                        print(self.cdReinicios)
+                        print(type(self.cdReinicios))
                         self.cdReinicios = 0
                         self.escribirLog("*********************Reiniciando luego de 3 horas sin reiniciar o algun error")
                         print("********************ENTRO AL SEGUNDO IF DE REINICIOS********************")
-                time.sleep(2)
+                        self.horaUltimoReinicio = horaActual
+                        self.fechaUltimoReinicio = fechaActual
+                        with open("C:/thales/scripts/reinicios.json", "r") as files:
+                            reiniciosJson = json.load(files)
+                            for reinicioJSON in reiniciosJson ["Reinicio"]:
+                                reinicioJSON["contadorReinicios"] =self.cdReinicios
+                                reinicioJSON["horaUltimoReinicio"]=str(self.horaUltimoReinicio)
+                                reinicioJSON["fechaUltimoReinicio"]=str(self.fechaUltimoReinicio)
+                                archivoReiniciosActualizar = open("C:/thales/scripts/reinicios.json", "w")
+                                json.dump(reiniciosJson, archivoReiniciosActualizar)
+                                archivoReiniciosActualizar.close()
+                else:
+                    print("fuera de la condiciones...")
                         # subprocess.call("shutdown -r -f")
                         # break
 # actual1 = datetime.datetime.now()
