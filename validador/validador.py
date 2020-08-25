@@ -39,12 +39,16 @@ class Validador ():
         self.validarErrores= False
         self.primerConteo = True
         self.day= date.today().strftime("%A")
-        self.fechaUltimoReinicio = ""
+        self.horaUltimoErrorDetectado = ""
         self.horaUltimoReinicio = ""
         self.segundosEntreUltimoErrorDetectado = ""
         self.cdReinicios = 0
         self.reiniciar = False
+        self.primerReinicio = False
         self.diferenciaUltimoRegistroActual = 0
+        self.rutaReinicios = "C:/thales/scripts/reinicios.json"
+        self.tiempo_Entre_Reinicios =120
+        self.tiempoDeRecuperacion = 120
 
     def escribirLog(self,log):
         # archivo = "C:/thales/scripts/validador.log"
@@ -80,7 +84,6 @@ class Validador ():
                                 issues.erroresContados = 0
 
                     if self.validarErrores:
-                        print("validando errore")
                         with open(self.rutaNxClientIssues, "r") as files:
                             issues_jsonB = json.load(files)
                             for issueOBJB in issues_jsonB ['issues']:
@@ -100,16 +103,12 @@ class Validador ():
                     try: file.seek(where)
                     except IOError: file.seek(0)
                 else:
-                    print line
                     for issues in self.listadoDeIssues: # para cada de log, con este FORe recorremos la lista de errores y buscamos el error en la linea
-                        print("Error a buscar "+str(issues.issuesABuscar))
                         x = re.search(issues.issuesABuscar, line)
                         if x:
                             self.validarErrores= True
                             issues.numeroErroresActual +=1
-                            print ("Contador, issue Id "+str(issues.codigo) + ' = '+ str(issues.numeroErroresActual))
-                        else:
-                            print("error no encontrado")
+                            print ("Id: "+str(issues.codigo) + ' = '+ str(issues.numeroErroresActual))
 
     def tareas (self):
         for issues in self.listadoDeIssues:
@@ -129,95 +128,100 @@ class Validador ():
                 for lineaArchivoReinicio in jsondecoded["Reinicio"]:
                     if lineaArchivoReinicio["horaUltimoReinicio"] == 0:
                         self.horaUltimoReinicio = horaActual
-                        self.fechaUltimoReinicio = horaActual
+                        self.horaUltimoErrorDetectado = horaActual
                         self.cdReinicios=0
-                        print("ES LA PRIMER CORRIDA")
+                        self.primerReinicio = True
                     else:
                         self.horaUltimoReinicio = datetime.strptime(lineaArchivoReinicio["horaUltimoReinicio"], '%Y-%m-%d %H:%M:%S.%f')
-                        self.fechaUltimoReinicio=datetime.strptime(lineaArchivoReinicio["fechaUltimoReinicio"], '%Y-%m-%d %H:%M:%S.%f')
+                        self.horaUltimoErrorDetectado=datetime.strptime(lineaArchivoReinicio["fechaUltimoReinicio"], '%Y-%m-%d %H:%M:%S.%f')
                         self.cdReinicios = lineaArchivoReinicio["contadorReinicios"]
-                    print("Reinicio >"+ str(self.horaUltimoReinicio))
-                    print("Fecha    >"+ str(self.fechaUltimoReinicio))
-                    print("Contador de reinicios "+ str(self.cdReinicios))
+                    self.escribirLog("Reinicio >"+ str(self.horaUltimoReinicio))
+                    self.escribirLog("Fecha    >"+ str(self.horaUltimoErrorDetectado))
+                    self.escribirLog("Contador de reinicios "+ str(self.cdReinicios))
 
 
 
 
                 self.diferenciaUltimoRegistroActual = (horaActual - self.horaUltimoReinicio  ).seconds
-                print("Tiempo entre reinicios: "+ str(self.diferenciaUltimoRegistroActual) +".seconds.................................................")
+                print("Tiempo entre reinicios: "+ str(self.diferenciaUltimoRegistroActual) +".Seg")
 
                 res = self.diferenciaUltimoRegistroActual
-                tiempo_Entre_Reinicios = 60
-                if res <= tiempo_Entre_Reinicios:
+                if res <= self.tiempo_Entre_Reinicios:
                      self.horaUltimoReinicio = horaActual
-                     self.fechaUltimoReinicio = horaActual
-                     with open("C:/thales/scripts/reinicios.json", "r") as files:
-                          reiniciosJson = json.load(files)
-                          for reinicioJSON in reiniciosJson ["Reinicio"]:
-                              reinicioJSON["contadorReinicios"]=lineaArchivoReinicio["contadorReinicios"]
-                              reinicioJSON["horaUltimoReinicio"]=lineaArchivoReinicio["horaUltimoReinicio"]
-                              reinicioJSON["fechaUltimoReinicio"]=str(self.fechaUltimoReinicio) #Solo este campo se debe actualizar.
-                              archivoReiniciosActualizar = open("C:/thales/scripts/reinicios.json", "w")
-                              json.dump(reiniciosJson, archivoReiniciosActualizar)
-                              archivoReiniciosActualizar.close()
+                     self.horaUltimoErrorDetectado = horaActual
+                     if self.primerReinicio:
+                        self.cdReinicios +=1
+                        self.horaUltimoReinicio = horaActual
+                        self.horaUltimoErrorDetectado = horaActual
+                        self.primerReinicio = False
+                        with open(self.rutaReinicios, "r") as files:
+                            reiniciosJson = json.load(files)
+                            for reinicioJSON in reiniciosJson ["Reinicio"]:
+                                reinicioJSON["contadorReinicios"] =self.cdReinicios
+                                reinicioJSON["horaUltimoReinicio"]=str(self.horaUltimoReinicio)
+                                reinicioJSON["fechaUltimoReinicio"]=str(self.horaUltimoErrorDetectado)
+                                archivoReiniciosActualizar = open(self.rutaReinicios, "w")
+                                json.dump(reiniciosJson, archivoReiniciosActualizar)
+                                archivoReiniciosActualizar.close()
+                     else:
+                         with open(self.rutaReinicios, "r") as files:
+                              reiniciosJson = json.load(files)
+                              for reinicioJSON in reiniciosJson ["Reinicio"]:
+                                  reinicioJSON["contadorReinicios"]=lineaArchivoReinicio["contadorReinicios"]
+                                  reinicioJSON["horaUltimoReinicio"]=lineaArchivoReinicio["horaUltimoReinicio"]
+                                  reinicioJSON["fechaUltimoReinicio"]=str(self.horaUltimoErrorDetectado) #Solo este campo se debe actualizar.
+                                  archivoReiniciosActualizar = open(self.rutaReinicios, "w")
+                                  json.dump(reiniciosJson, archivoReiniciosActualizar)
+                                  archivoReiniciosActualizar.close()
 
-                elif res >= tiempo_Entre_Reinicios and self.cdReinicios <= 3:
-                    self.escribirLog("Reiniciando, cumple con al menos una hora y menos de 3 reinicios.........................................")
-                    print("Reiniciando, cumple con al menos una hora y menos de 3 reinicios.........................................")
+                elif res >= self.tiempo_Entre_Reinicios and self.cdReinicios <= 3:
+                    self.escribirLog("Reiniciando, cumple con al menos una hora y menos de 3 reinicios")
                     self.cdReinicios +=1
                     self.horaUltimoReinicio = horaActual
-                    self.fechaUltimoReinicio = horaActual
+                    self.horaUltimoErrorDetectado = horaActual
 
-                    with open("C:/thales/scripts/reinicios.json", "r") as files:
+                    with open(self.rutaReinicios, "r") as files:
                         reiniciosJson = json.load(files)
                         for reinicioJSON in reiniciosJson ["Reinicio"]:
                             reinicioJSON["contadorReinicios"] =self.cdReinicios
                             reinicioJSON["horaUltimoReinicio"]=str(self.horaUltimoReinicio)
-                            reinicioJSON["fechaUltimoReinicio"]=str(self.fechaUltimoReinicio)
-                            archivoReiniciosActualizar = open("C:/thales/scripts/reinicios.json", "w")
+                            reinicioJSON["fechaUltimoReinicio"]=str(self.horaUltimoErrorDetectado)
+                            archivoReiniciosActualizar = open(self.rutaReinicios, "w")
                             json.dump(reiniciosJson, archivoReiniciosActualizar)
                             archivoReiniciosActualizar.close()
-                    # subprocess.call("shutdown -r -f")
-                    # break
-                elif self.cdReinicios > 3:
-                        self.segundosEntreUltimoErrorDetectado = (horaActual - self.fechaUltimoReinicio ).seconds
-                        print("ultimo error detectado: "+self.segundosEntreUltimoErrorDetectado+".seg")
-                        if 180 >= self.segundosEntreUltimoErrorDetectado:
-                            print(self.cdReinicios)
-                            print(type(self.cdReinicios))
+                    subprocess.call("shutdown -r -f")
+                    break
+                elif self.cdReinicios > 2:
+                        self.segundosEntreUltimoErrorDetectado = (horaActual - self.horaUltimoErrorDetectado ).seconds
+                        self.escribirLog("Hora ultimo error detectado: "+str(self.segundosEntreUltimoErrorDetectado)+".seg")
+                        if self.segundosEntreUltimoErrorDetectado >= self.tiempoDeRecuperacion:
                             self.cdReinicios = 0
-                            self.escribirLog("*********************Reiniciando luego de 3 horas sin reiniciar o detectar error")
-                            print("********************ENTRO AL SEGUNDO IF DE REINICIOS********************")
+                            self.escribirLog("Reiniciando luego de 3 horas detectar error")
                             self.horaUltimoReinicio = horaActual
-                            self.fechaUltimoReinicio = horaActual
-                            with open("C:/thales/scripts/reinicios.json", "r") as files:
+                            self.horaUltimoErrorDetectado = horaActual
+                            with open(self.rutaReinicios, "r") as files:
                                 reiniciosJson = json.load(files)
                                 for reinicioJSON in reiniciosJson ["Reinicio"]:
                                     reinicioJSON["contadorReinicios"] =self.cdReinicios
                                     reinicioJSON["horaUltimoReinicio"]=str(self.horaUltimoReinicio)
-                                    reinicioJSON["fechaUltimoReinicio"]=str(self.fechaUltimoReinicio)
-                                    archivoReiniciosActualizar = open("C:/thales/scripts/reinicios.json", "w")
+                                    reinicioJSON["fechaUltimoReinicio"]=str(self.horaUltimoErrorDetectado)
+                                    archivoReiniciosActualizar = open(self.rutaReinicios, "w")
                                     json.dump(reiniciosJson, archivoReiniciosActualizar)
                                     archivoReiniciosActualizar.close()
-                            # subprocess.call("shutdown -r -f")
-                            # break
+                            subprocess.call("shutdown -r -f")
+                            break
                         else:
-                            print("No debe reiniciar hasta 180 segundos sin reinicio")
-
-# actual1 = datetime.datetime.now()
-# actual2 = datetime.datetime.now()
-#
-# diferencia = actual2 - actual1
-#
-# print(diferencia.days)
-# print(diferencia.seconds)
-#
-# print(diferencia.total_seconds())
-                # self.escribirLog(str(issues.diferencia) +" es mayor que "+ str(issues.disparador))
-                # self.escribirLog("Reiniciando...")
-                # subprocess.call("shutdown -r -f")
-
-
+                            self.horaUltimoErrorDetectado = horaActual
+                            self.escribirLog("No debe reiniciar hasta "+str(self.horaUltimoErrorDetectado)+ " segundos sin reinicio")
+                            with open(self.rutaReinicios, "r") as files:
+                              reiniciosJson = json.load(files)
+                              for reinicioJSON in reiniciosJson ["Reinicio"]:
+                                  reinicioJSON["contadorReinicios"]=lineaArchivoReinicio["contadorReinicios"]
+                                  reinicioJSON["horaUltimoReinicio"]=lineaArchivoReinicio["horaUltimoReinicio"]
+                                  reinicioJSON["fechaUltimoReinicio"]=str(self.horaUltimoErrorDetectado) #Solo este campo se debe actualizar.
+                                  archivoReiniciosActualizar = open(self.rutaReinicios, "w")
+                                  json.dump(reiniciosJson, archivoReiniciosActualizar)
+                                  archivoReiniciosActualizar.close()
 
     def leer_Archivo_Config (self):
         f = open(self.rutaValidadorFolder+ "config.json", "r")
@@ -229,10 +233,6 @@ class Validador ():
             self.rutaNxClientExe = lineaArchivoConfig["Ruta_File_exe"]
             self.rutaNxClientIssues = lineaArchivoConfig["Ruta_File_issues_json"]
             self.ruta_File_validador_log = lineaArchivoConfig["Ruta_File_validador_log"]
-            print("Ruta log: " + self.rutaNxClientLog)
-            print("Ruta exe: " + self.rutaNxClientExe)
-            print("Ruta issues: " + self.rutaNxClientIssues)
-            print("Ruta validador.log: " + self.ruta_File_validador_log)
 
     def administracion_De_Tiempo(self):
         self.leer_Archivo_Config()
@@ -248,8 +248,6 @@ class Validador ():
 
         else:
             self.day = str(date.today().strftime("%A"))
-            print("Hacemos el rotado de logs")
-            print("El dia es diferente "+ self.day)
             rutaValidador = "C:/thales/scripts/validador.log"+"."+self.day
             shutil.copy("C:/thales/scripts/validador.log", rutaValidador)
             with open("C:/thales/scripts/validador.log", 'w'):
@@ -259,11 +257,6 @@ def main():
 
     validador = Validador()
     validador.administracion_De_Tiempo()
-    # validador.leer_Archivo_Config()
-    # validador.escribirLog("Iniciando validador...")
-    # validador.leer_errores()
-    # validador.contador_Multi_Errores()
-    # validador.escribirLog("Finalizando validador...")
 
 if __name__=='__main__':
     main()

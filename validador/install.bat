@@ -6,6 +6,6 @@ C:\python27\python.exe instalador.py
 C:
 cd\gemalto\scripts\
 cd %2
-del *.*
+del/Q *.*
 if exist %1 del %1
 cd\
