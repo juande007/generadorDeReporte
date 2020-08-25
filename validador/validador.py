@@ -47,8 +47,8 @@ class Validador ():
         self.primerReinicio = False
         self.diferenciaUltimoRegistroActual = 0
         self.rutaReinicios = "C:/thales/scripts/reinicios.json"
-        self.tiempo_Entre_Reinicios =120
-        self.tiempoDeRecuperacion = 120
+        self.tiempo_Entre_Reinicios =3600
+        self.tiempoDeRecuperacion = 10800
 
     def escribirLog(self,log):
         # archivo = "C:/thales/scripts/validador.log"
