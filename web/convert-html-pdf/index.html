@@ -1,0 +1,35 @@
+<html>
+<head>
+<script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+<script src="jspdf.debug.js"></script>
+
+<style>
+#pdf {
+   width:600px;
+}
+</style>
+<script>
+$(function() {
+ $('#download').click(function() {
+  var options = {
+  };
+  var pdf = new jsPDF('p', 'pt', 'a4');
+  pdf.addHTML($("#pdf"), 15, 15, options, function() {
+    pdf.save('informe.pdf');
+  });
+ });
+});
+</script>
+</head>
+<body>
+<div style="text-align:right; font-size:18px; width:95%; margin-top:1%"></div>
+
+<button id="download">DESCARGAR PDF</button>
+<div id="pdf" style="background-color: white;">
+<h2>Exportar contenido HTML a un documento PDF</h2>
+<b>Por: Obed Alvarado</b><br/>
+
+<h4>The leading HTML5 client solution for generating PDFs. Perfect for event tickets, reports, certificates, you name it!</h4>
+</div>
+</body>
+</html>

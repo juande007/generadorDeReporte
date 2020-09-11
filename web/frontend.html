@@ -14,7 +14,7 @@
             let random_filename = await eel.pick_file(comando)();
             file_div.innerHTML = random_filename;
           }
-          async function clientes() {
+        async function clientes() {
             let div_clientes = document.getElementById('div_clientes');
             let clientes = await eel.clientes()();
 
@@ -23,7 +23,7 @@
             return "hola";
           }
 
-          async function listaIncidentes(){
+        async function listaIncidentes(){
             let div_incidents = document.getElementById('div_incidents');
             let listaIncidentes = await eel.listaIncidentes()();
 
@@ -31,11 +31,58 @@
             console.log("Entro al script incidentes")
             return "test";
           }
-          function prueba (algo){
-            document.getElementById('input_box').value = algo
-            
+        var c = '';
+        async function imprimirSonda(){
+        //   let idSonda = document.getElementById(sonda);
+        //   let sondass = await eel.imprimirSonda(idSonda)();
+        //
+        //   idSonda.innerHTML = sondass;
+        // console.log(sondass);
+        $('.democlass').each(function() {
+        var a=$(this).attr('id');
+        var b=$(this).attr('value');
+        a = a.concat(","+b+";");
+        c=c.concat(a);
 
+        });
+
+        console.log("Resultado = "+c)
+        let datosSonda = await eel.imprimirSonda(c)();
+        }
+        function buscarCliente (algo){
+            document.getElementById('input_box').value = algo
+        }
+        function adicionarSondaAReporte(sonda,issue){
+          var addSonda=document.createElement("input");
+          addSonda.type="radio";
+          addSonda.value=issue;
+          addSonda.id=sonda;
+          addSonda.checked =true;
+          addSonda.name = sonda;
+          var textnode = document.createTextNode(sonda+":"+issue);
+          var att = document.createAttribute("class");       // Create a "class" attribute
+          att.value = "democlass";                           // Set the value of the class attribute
+          // var types = document.create("type");
+          // att.value = "radio";
+          addSonda.appendChild(textnode);
+          //addSonda.appendChild(att);
+          addSonda.setAttributeNode(att);
+          document.getElementById("divReporte").appendChild(addSonda);
+
+          var labelSonda = document.createElement("label");
+          var textSonda = document.createTextNode(sonda+":"+issue);
+          labelSonda.appendChild(textSonda);
+          document.getElementById("divReporte").appendChild(labelSonda);
+          //addsonda.setAttribute("class", "democlass");
+          console.log("Entró a la funcion"+xy)
           }
+        function  adicionarIssueAReporte (xyz)
+          {
+            document.getElementById('div_incidents').appendChild = xyz
+            console.log("Hola issue")
+            document.getElementById("divReporte").textContent = xyz;
+            }
+
       </script>
   </head>
   <body onload="clientes();listaIncidentes();">
@@ -54,14 +101,17 @@
             <h3 id="div_clientes"></h3>
         </div>
         <div class = "lista">
-            <h3 id='file-name' ></button>
+            <h3 id='file-name'></h3>
         </div>
         <div class = "lista">
           <h3 id="div_incidents"></h3>
         </div>
-        <div class = "lista">
-          <h3>Reporte</h3>
-
+        <div class = "lista" id="divReporte">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+          <h3 id="adicionarSondaAReporte">Reporte</h3>
+          <form onsubmit="imprimirSonda(); return false;" >
+          <button class = "rainbow-button" type="submit">Enviar</button>
+          </form>
         </div>
       </div>
     </aside>
