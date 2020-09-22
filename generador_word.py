@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import time
 import json
+import re
+import GeneradorDeReporte
 from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
 from docx.shared import Inches
@@ -9,18 +11,19 @@ from docx.shared import Length
 from docx.shared import Pt
 #
 class Reportes:
-# 	def __init__(self):
-# 		self.cliente =''
+	def __init__(self,cliente):
+ 		self.cliente =cliente
+
 	def datosReporte(self, li):
 
 		self.lista = li
-
+		contador=0
 		for element in li:
-			lo = list(element.split(","))
-			for element in lo:
-				print lo[1]
+			print li[contador][0]
+			contador =+ 1
+			print("Entro a generador word")
 
-				
+
 	def recolectorDatos():
 
 		incidente='LatePacket.json'
@@ -39,9 +42,10 @@ class Reportes:
 			print(analisis)
 			print(rootCause)
 
-	def generadorWord(self):
+	def generadorWord(self, li):
 
-			id_sonda = int(raw_input('Ingrese el ID de la sonda: '))
+			# id_sonda = int(raw_input('Ingrese el ID de la sonda: '))
+			print ("El cliente es desde word: "+str(self.cliente))
 			id_cliente = int(raw_input('Customer (1=Tigo Bolivia 2=Nuevatel ): '))
 
 			if id_cliente == 1:
@@ -56,33 +60,43 @@ class Reportes:
 				document.add_paragraph("--------------------------------------------------------------------")
 				document.add_paragraph("1. GENERAL INFO")
 				document.add_paragraph("GEMALTO SUPPORT TEAM - TECHNICAL REPORT")
-				document.add_paragraph("Customer: Tigo Bolivia")
+				document.add_paragraph("Customer:"+ str(self.cliente))
 				document.add_paragraph("Contac Name: Carlos Mercado")
 				document.add_paragraph("Call id: ")
 				document.add_paragraph("Date & Time: " + time.strftime("%x"))
 
-				paragraph = document.add_paragraph('')
-				run = paragraph.add_run('Cliente ID: ' + str(id_sonda))
-				run.bold = True
+				self.lista = li
+				# for value in self.lista:
+				contador = 0
+				for element in self.lista:
+					print li[contador][0]
+					sonda = li[contador][0]
+					issue = li[contador][1]
+					contador =+ 1
 
-				paragraph = document.add_paragraph('')
-				run = paragraph.add_run('Descripcion: ')
-				run.bold = True
+					paragraph = document.add_paragraph('')
+					run = paragraph.add_run('Cliente ID: ' + str(sonda))
+					run.bold = True
+					paragraph = document.add_paragraph('')
+					run = paragraph.add_run('Descripcion: ')
+					run.bold = True
 
-				document.add_paragraph("--------------------------------------------------------------------")
-				document.add_paragraph("2. DETAILS OF INCIDENT: ")
-				document.add_paragraph("Impacted platform: ")
-				document.add_paragraph("Root Cause: ")
-				document.add_paragraph("Incident description: ")
-				document.add_paragraph("Evidencias: ")
 
-				document.add_paragraph("--------------------------------------------------------------------")
-				document.add_paragraph("3. RESOLUTION")
-				document.add_paragraph("Incident Analysis: ")
-				document.add_paragraph("Workaround: ")
-				document.add_paragraph("Recommendation: ")
-				document.add_paragraph("Additional comments: NA")
-				document.save('.\Documents\GitHub\generadorDeReporte\Clientes\Temporal\Reporte_Errores\Sonda.docx')
+					document.add_paragraph("--------------------------------------------------------------------")
+					document.add_paragraph("2. DETAILS OF INCIDENT: ")
+					document.add_paragraph("Impacted platform: ")
+					document.add_paragraph("Root Cause: "+ str(issue))
+					document.add_paragraph("Incident description: ")
+					document.add_paragraph("Evidencias: ")
+
+					document.add_paragraph("--------------------------------------------------------------------")
+					document.add_paragraph("3. RESOLUTION")
+					document.add_paragraph("Incident Analysis: ")
+					document.add_paragraph("Workaround: ")
+					document.add_paragraph("Recommendation: ")
+					document.add_paragraph("Additional comments: NA")
+					document.save('C:\Users\CORE i3\Documents\GitHub\generadorDeReporte\Clientes\Temporal\Reporte_Errores\Sonda.docx')
+
 
 			elif id_cliente > 1:
 				print ('Descarga doc 2')
@@ -99,8 +113,8 @@ class DatosReporte:
 			self.lista = []
 
 def main():
-	# reportes = Reportes()
-	# reportes.generadorWord()
-	datosReporte()
+	reportes = Reportes()
+	reportes.generadorWord()
+	# reportes.datosReporte()
 if __name__=='__main__':
         main()

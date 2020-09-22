@@ -1,5 +1,6 @@
 import eel, os, random
 import GeneradorDeReporte
+import re
 from incidents import Incidents
 # from generador_word import datosReporte
 from generador_word import Reportes
@@ -9,7 +10,14 @@ from generador_word import Reportes
 eel.init('web')
 
 @eel.expose
+
 def pick_file(comando):
+
+    palabra= comando
+    patron = re.compile('([a-zA-Z]+)(\s)')
+    matcher = patron.search(palabra)
+    cliente = matcher.group()
+    print ('El cliente es desde PYTHON FRONTEND: ' + str(cliente))
 
     incidentes = Incidents()
     mostrarIncidents = incidentes.mostrarIncidents()
@@ -18,7 +26,7 @@ def pick_file(comando):
     reporte = GeneradorDeReporte
     sondas = reporte.tarea(comando)
     print(comando)
-    resultado=''
+    resultado="<input type='text' id='cliente' value='"+cliente+"'>"+cliente+"</input>"
     for element in sondas:
         resultado=resultado+"<div><li id="+element+">"+element+"</li>"
         for issueElmente in mostrarIncidents:
@@ -51,12 +59,21 @@ def listaIncidentes():
     print("entro aqui")
     return inc
 @eel.expose
-def imprimirSonda(datosSonda):
+def imprimirSonda(datosSonda,cliente):
+
     print("Resultadp desde python "+str(datosSonda))
+    la=[]
     li = list(datosSonda.split(";"))
+    print ("Cliente en imprimirSonda es: "+str(cliente))
     for element in li:
         print element
-    reportes = Reportes()
-    datosReporte = reportes.datosReporte(li)
+        print ("el contenido element es:"+element)
+        if element != "":
+            la.append(element.split(","))
+            print la
+    reportes = Reportes(cliente)
+    datosReporte = reportes.generadorWord(la)
+
+
 
 eel.start('frontend.html')

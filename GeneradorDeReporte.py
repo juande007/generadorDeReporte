@@ -19,7 +19,6 @@ def listadoDeClientes():
 	x=cliente.mostrar_clientes()
 	return x
 
-
 def main():
  	tarea("tigo 3322")
 	listadoDeClientes()

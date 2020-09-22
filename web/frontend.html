@@ -19,7 +19,7 @@
             let clientes = await eel.clientes()();
 
             div_clientes.innerHTML = clientes;
-          // console.log(clientes);
+          // console.log("async function cliente "+clientes);
             return "hola";
           }
 
@@ -33,21 +33,20 @@
           }
         var c = '';
         async function imprimirSonda(){
-        //   let idSonda = document.getElementById(sonda);
-        //   let sondass = await eel.imprimirSonda(idSonda)();
-        //
-        //   idSonda.innerHTML = sondass;
-        // console.log(sondass);
+
         $('.democlass').each(function() {
         var a=$(this).attr('id');
         var b=$(this).attr('value');
         a = a.concat(","+b+";");
         c=c.concat(a);
-
         });
 
         console.log("Resultado = "+c)
-        let datosSonda = await eel.imprimirSonda(c)();
+        var cliente = document.getElementById("cliente").value;
+        console.log("El cliente es "+cliente)
+
+        let datosSonda = await eel.imprimirSonda(c, cliente)();
+
         }
         function buscarCliente (algo){
             document.getElementById('input_box').value = algo
@@ -60,8 +59,8 @@
           addSonda.checked =true;
           addSonda.name = sonda;
           var textnode = document.createTextNode(sonda+":"+issue);
-          var att = document.createAttribute("class");       // Create a "class" attribute
-          att.value = "democlass";                           // Set the value of the class attribute
+          var att = document.createAttribute("class");
+          att.value = "democlass";
           // var types = document.create("type");
           // att.value = "radio";
           addSonda.appendChild(textnode);
@@ -108,7 +107,8 @@
         </div>
         <div class = "lista" id="divReporte">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-          <h3 id="adicionarSondaAReporte">Reporte</h3>
+          <h3>Reportes</h3>
+          <h3 id="adicionarSondaAReporte"></h3>
           <form onsubmit="imprimirSonda(); return false;" >
           <button class = "rainbow-button" type="submit">Enviar</button>
           </form>
