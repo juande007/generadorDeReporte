@@ -17,7 +17,8 @@ def pick_file(comando):
     patron = re.compile('([a-zA-Z]+)(\s)')
     matcher = patron.search(palabra)
     cliente = matcher.group()
-    print ('El cliente es desde PYTHON FRONTEND: ' + str(cliente))
+    cliente=cliente.strip()
+    print ("El cliente es desde PYTHON FRONTEND: '" + str(cliente)+"'")
 
     incidentes = Incidents()
     mostrarIncidents = incidentes.mostrarIncidents()
@@ -64,7 +65,7 @@ def imprimirSonda(datosSonda,cliente):
     print("Resultadp desde python "+str(datosSonda))
     la=[]
     li = list(datosSonda.split(";"))
-    print ("Cliente en imprimirSonda es: "+str(cliente))
+    print ("Cliente en imprimirSonda es: '"+str(cliente)+"'")
     for element in li:
         print element
         print ("el contenido element es:"+element)

@@ -47,6 +47,9 @@
 
         let datosSonda = await eel.imprimirSonda(c, cliente)();
 
+        var textodeldiv = document.getElementById("divReporte").innerHTML;
+        document.getElementById("divReporte").innerHTML = "<div>"+cliente+"</div>";
+
         }
         function buscarCliente (algo){
             document.getElementById('input_box').value = algo
@@ -81,6 +84,11 @@
             console.log("Hola issue")
             document.getElementById("divReporte").textContent = xyz;
             }
+        function showAlert() {
+          alert ("¡Se creo el documento con éxito!");
+          location.reload();
+            }
+    </script>
 
       </script>
   </head>
@@ -107,10 +115,10 @@
         </div>
         <div class = "lista" id="divReporte">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-          <h3>Reportes</h3>
           <h3 id="adicionarSondaAReporte"></h3>
           <form onsubmit="imprimirSonda(); return false;" >
-          <button class = "rainbow-button" type="submit">Enviar</button>
+          <div id="clientesMostrar">cliente</div>
+          <button class = "rainbow-button" type="submit" onclick = "showAlert()">Enviar</button>
           </form>
         </div>
       </div>

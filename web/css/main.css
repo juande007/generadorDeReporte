@@ -1,7 +1,7 @@
 body{
   margin: 3%;
   padding: 0;
-  position: fixed;
+  position: relative;
   top: 0;
   bottom: 0;
   right: 0;
@@ -16,6 +16,7 @@ header{
   grid-template: 1fr 1fr;
   background-color: #C6C5C5;
   align: "center";
+
 }
 aside{
   right: 10;

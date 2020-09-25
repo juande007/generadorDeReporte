@@ -1,12 +1,12 @@
 {
     "nuevoIncident": [
         {
-            "Analisis: ": "ya lo escribo coma ...", 
-            "Descripcion: ": "Este error se presenta de forma aleatorea y cuando se presenta la sonda no puede realizar mediciones.", 
-            "Workaround: ": "se aplica fix", 
-            "Root Cause: ": "desconocida aun", 
-            "Recomendacion: ": "visita a sitio", 
-            "Nombre: ": "QMI"
+            "Analisis": "ya lo escribo coma ...", 
+            "Descripcion": "Este error es QMI. ", 
+            "Workaround": "se aplica fix", 
+            "Root Cause": "desconocida aun", 
+            "Recomendacion": "visita a sitio", 
+            "Nombre": "QMI"
         }
     ]
 }
