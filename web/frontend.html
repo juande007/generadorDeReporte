@@ -46,10 +46,6 @@
         console.log("El cliente es "+cliente)
 
         let datosSonda = await eel.imprimirSonda(c, cliente)();
-
-        var textodeldiv = document.getElementById("divReporte").innerHTML;
-        document.getElementById("divReporte").innerHTML = "<div>"+cliente+"</div>";
-
         }
         function buscarCliente (algo){
             document.getElementById('input_box').value = algo
@@ -84,9 +80,11 @@
             console.log("Hola issue")
             document.getElementById("divReporte").textContent = xyz;
             }
-        function showAlert() {
-          alert ("¡Se creo el documento con éxito!");
-          location.reload();
+        async function abrirArchivo() {
+          let open = document.getElementById('word');
+          let abrirArchivo = await eel.abrirArchivo()();
+
+          window.location.reload();
             }
     </script>
 
@@ -116,9 +114,9 @@
         <div class = "lista" id="divReporte">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
           <h3 id="adicionarSondaAReporte"></h3>
-          <form onsubmit="imprimirSonda(); return false;" >
-          <div id="clientesMostrar">cliente</div>
-          <button class = "rainbow-button" type="submit" onclick = "showAlert()">Enviar</button>
+          <form onsubmit="imprimirSonda(); return false;">
+          <button class = "rainbow-button" type="submit" >Enviar</button>
+          <img src="\css\img\logoWord.png" width="20" height="20" onclick = "abrirArchivo()" id="word"></img>
           </form>
         </div>
       </div>

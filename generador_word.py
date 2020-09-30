@@ -53,6 +53,14 @@ class Reportes:
 			date_time = now.strftime("%d-%m-%Y")
 			date_timeFile = now.strftime("%Y%m%d")
 
+			# C:/Users/CORE i3/Documents/GitHub/generadorDeReporte
+			file = open('Clientes/'+self.cliente+'/'+self.cliente+'.json', "r")
+			cont = file.read()
+			archJson = json.loads(cont)
+
+			for lineaArchivo in archJson["nombreDeCliente"]:
+				contacto  = lineaArchivo["nombre_contacto"]
+
 			print 'Descarga el doc 1'
 			document = Document()
 			style = document.styles['Normal']
@@ -65,7 +73,7 @@ class Reportes:
 			document.add_paragraph("1. GENERAL INFO")
 			document.add_paragraph("GEMALTO SUPPORT TEAM - TECHNICAL REPORT")
 			document.add_paragraph("Customer: "+ str(self.cliente))
-			document.add_paragraph("Contac Name: Carlos Mercado")
+			document.add_paragraph("Contac Name: "+str(contacto))
 			document.add_paragraph("Call id: ")
 			document.add_paragraph("Date & Time: " + str(date_time))
 			#2020-09-18
@@ -91,6 +99,10 @@ class Reportes:
 					rootCause = lineaArchivoConfig["Root Cause"]
 					recomendacion = lineaArchivoConfig["Recomendacion"]
 
+					document.add_paragraph("")
+					document.add_paragraph("")
+					document.add_paragraph("")
+					document.add_paragraph("")
 					document.add_paragraph("--------------------------------------------------------------------")
 					paragraph = document.add_paragraph('')
 					run = paragraph.add_run('Cliente ID: ' + str(sonda))

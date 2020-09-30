@@ -1,25 +1,30 @@
 import eel, os, random
 import GeneradorDeReporte
 import re
+from datetime import datetime
 from incidents import Incidents
 # from generador_word import datosReporte
 from generador_word import Reportes
 
 
+class DatosReporte:
+    def __init__(self):
+ 		self.cliente = ""
+
+obj = DatosReporte
+obj.cliente=""
 
 eel.init('web')
-
 @eel.expose
 
 def pick_file(comando):
-
     palabra= comando
     patron = re.compile('([a-zA-Z]+)(\s)')
     matcher = patron.search(palabra)
     cliente = matcher.group()
     cliente=cliente.strip()
     print ("El cliente es desde PYTHON FRONTEND: '" + str(cliente)+"'")
-
+    obj.cliente=cliente
     incidentes = Incidents()
     mostrarIncidents = incidentes.mostrarIncidents()
     inc =''
@@ -76,5 +81,11 @@ def imprimirSonda(datosSonda,cliente):
     datosReporte = reportes.generadorWord(la)
 
 
+@eel.expose
+def abrirArchivo():
+    now = datetime.utcnow()
+    date_timeFile = now.strftime("%Y%m%d")
+    print os.getcwd()
+    os.startfile('.\\Clientes\\'+obj.cliente+'\\Reporte_Errores\\'+str(date_timeFile)+'_ATT_Probes.docx')
 
 eel.start('frontend.html')
