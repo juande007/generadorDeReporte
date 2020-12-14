@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "SUCRE - TIENDA SUCRE;NTELBO-M_31"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "19"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "19"
+        }
+    ]
+}

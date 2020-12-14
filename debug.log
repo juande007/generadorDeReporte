@@ -28,3 +28,17 @@
 [0929/165523.720:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
 [0929/165750.704:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
 [0929/172007.466:ERROR:file_io.cc(135)] WriteFile: Se está cerrando la canalización. (0xE8)
+[1001/104159.377:ERROR:file_io.cc(135)] WriteFile: Se está cerrando la canalización. (0xE8)
+[1013/104508.754:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
+[1013/104652.325:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
+[1013/154302.427:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[1013/172944.654:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
+[1022/124231.901:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[1104/154035.959:ERROR:file_io.cc(135)] WriteFile: Se está cerrando la canalización. (0xE8)
+[1106/111229.040:ERROR:file_io.cc(135)] WriteFile: Se está cerrando la canalización. (0xE8)
+[1109/161117.614:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
+[1109/161446.515:ERROR:file_io.cc(135)] WriteFile: Se está cerrando la canalización. (0xE8)
+[1109/164343.675:ERROR:settings.cc(320)] Settings magic is not 1129342067
+[1111/092718.195:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
+[1111/094159.616:ERROR:file_io.cc(135)] WriteFile: Se está cerrando la canalización. (0xE8)
+[1214/163224.497:ERROR:file_io.cc(135)] WriteFile: Se está cerrando la canalización. (0xE8)

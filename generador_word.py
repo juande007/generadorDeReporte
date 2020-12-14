@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+# encoding=utf8
 import time
 import json
 import re
 import os
+import io
 import GeneradorDeReporte
 from datetime import datetime
 from docx import Document
@@ -11,7 +13,8 @@ from docx.shared import Inches
 from docx.enum.text import WD_LINE_SPACING
 from docx.shared import Length
 from docx.shared import Pt
-#
+
+
 class Reportes:
 	def __init__(self,cliente):
  		self.cliente =cliente
@@ -69,6 +72,44 @@ class Reportes:
 			font.size = Pt(9.1)
 			font.italic = True
 
+			self.lista = li
+			contador = 0
+			contadores = 0
+			filas = 0
+			numerodeSondas=len(self.lista)
+			numFilas = numerodeSondas+1
+			tablas  =  document.add_table (rows=numFilas, cols=3)
+			tablas.style  =  'TableGrid'
+			for element in self.lista:
+				print li[contadores][0]
+				sonda = li[contadores][0]
+				issue = li[contadores][1]
+
+				arch = open("Clientes/"+self.cliente+"/clientNx/clientID/"+sonda+"/"+sonda+".json", "r")
+				contenidos = arch.read()
+				jsonSonda = json.loads(contenidos)
+
+				for lineaArchivoSonda in jsonSonda["descripcion"]:
+					descripcion_Sondas  = lineaArchivoSonda["descripcionSonda"]
+				print li[contadores][0]+"Esto es lo que llega al for y su contador es:"+str(filas)
+
+				if filas == 0:
+					tablas.rows[0].cells[0].text = "ID"
+					tablas.rows[0].cells[1].text = "Descripcion"
+					tablas.rows[0].cells[2].text = "Evaluacion de soporte"
+					tablas.rows[1].cells[0].text = sonda
+					tablas.rows[1].cells[1].text = descripcion_Sondas
+					filas +=1
+					print li[contadores][0]+"Esto es lo que llega al for y su contador deberia ser 1: "+str(filas)
+				else:
+					tablas.rows[filas].cells[0].text = sonda
+					tablas.rows[filas].cells[1].text = descripcion_Sondas
+				filas +=1
+				print li[contadores][0]+"Esto es lo que llega al for y su contador deberia ser 2: "+str(filas)
+				contadores +=1
+
+
+
 			document.add_paragraph("--------------------------------------------------------------------")
 			document.add_paragraph("1. GENERAL INFO")
 			document.add_paragraph("GEMALTO SUPPORT TEAM - TECHNICAL REPORT")
@@ -76,21 +117,24 @@ class Reportes:
 			document.add_paragraph("Contac Name: "+str(contacto))
 			document.add_paragraph("Call id: ")
 			document.add_paragraph("Date & Time: " + str(date_time))
-			#2020-09-18
-			#time.strftime("%x"))
-			self.lista = li
-			# for value in self.lista:
-			contador = 0
+
 			for element in self.lista:
 				print li[contador][0]
 				sonda = li[contador][0]
 				issue = li[contador][1]
-
+				evidencia = li[contador][2]
+				imgEvidencia = li[contador][3]
 
 				incidente= issue
+				sondaALeer = sonda
+				evidencias = evidencia
+				imagen = imgEvidencia
+				print("La evidencia es: "+evidencias)
+
 				f = open("C:\Users\CORE i3\Documents\GitHub\generadorDeReporte/Incidentes/"+incidente, "r")
 				contenido = f.read()
 				archivoJson = json.loads(contenido)
+
 
 				for lineaArchivoConfig in archivoJson["nuevoIncident"]:
 					analisis  = lineaArchivoConfig["Analisis"]
@@ -99,34 +143,49 @@ class Reportes:
 					rootCause = lineaArchivoConfig["Root Cause"]
 					recomendacion = lineaArchivoConfig["Recomendacion"]
 
-					document.add_paragraph("")
-					document.add_paragraph("")
-					document.add_paragraph("")
-					document.add_paragraph("")
-					document.add_paragraph("--------------------------------------------------------------------")
-					paragraph = document.add_paragraph('')
-					run = paragraph.add_run('Cliente ID: ' + str(sonda))
-					run.bold = True
-					paragraph = document.add_paragraph('')
-					run = paragraph.add_run('Descripcion: '+ str(descripcion))
-					run.bold = True
+					print(analisis)
 
-					document.add_paragraph("--------------------------------------------------------------------")
-					document.add_paragraph("2. DETAILS OF INCIDENT: ")
-					document.add_paragraph("Impacted platform: ")
-					document.add_paragraph("Root Cause: "+ str(rootCause))
-					document.add_paragraph("Incident description: ")
-					document.add_paragraph("Evidencias: ")
+					arch = open("Clientes/"+self.cliente+"/clientNx/clientID/"+sondaALeer+"/"+sondaALeer+".json", "r")
+					contenidos = arch.read()
+					jsonSonda = json.loads(contenidos)
 
-					document.add_paragraph("--------------------------------------------------------------------")
-					document.add_paragraph("3. RESOLUTION")
-					document.add_paragraph("Incident Analysis: "+ str(analisis))
-					document.add_paragraph("Workaround: "+ str(workAround))
-					document.add_paragraph("Recommendation: "+ str(recomendacion))
-					document.add_paragraph("Additional comments: NA")
+					for lineaArchivoSonda in jsonSonda["descripcion"]:
+						descripcion_Sonda  = lineaArchivoSonda["descripcionSonda"]
 
-					contador += 1
+						document.add_paragraph("")
+						document.add_paragraph("")
+						document.add_paragraph("")
+						document.add_paragraph("")
+						document.add_paragraph("--------------------------------------------------------------------")
+						paragraph = document.add_paragraph('')
+						run = paragraph.add_run('Cliente ID: ' + str(sonda))
+						run.bold = True
+						paragraph = document.add_paragraph('')
+						run = paragraph.add_run('Descripcion: '+ descripcion_Sonda)
+						run.bold = True
 
+						document.add_paragraph("--------------------------------------------------------------------")
+						document.add_paragraph("2. DETAILS OF INCIDENT: ")
+						document.add_paragraph("Impacted platform: NxClient")
+						document.add_paragraph("Root Cause: "+ rootCause)
+						document.add_paragraph("Incident description: "+ descripcion)
+						document.add_paragraph("Evidencias: ")
+						#document.add_picture(imagen)
+						tabla  =  document.add_table (rows=1, cols=1)
+ 						tabla.style  =  'TableGrid'
+						tabla.rows[0].cells[0].text = evidencias
+						#evidencias+imagen
+						document.add_paragraph("")
+						document.add_paragraph("")
+
+						document.add_paragraph("--------------------------------------------------------------------")
+						document.add_paragraph("3. RESOLUTION")
+						document.add_paragraph("Incident Analysis: "+ analisis)
+						document.add_paragraph("Workaround: "+ workAround)
+						document.add_paragraph("Recommendation: "+ recomendacion)
+						document.add_paragraph("Additional comments: NA")
+
+						contador += 1
 
 			ruta = 'C:/Users/CORE i3/Documents/GitHub/generadorDeReporte/Clientes/'+self.cliente+'/Reporte_Errores/'
 			print (ruta)

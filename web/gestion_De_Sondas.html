@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <title>Gestión de Sondas</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/main.css">
+    <script type='text/javascript' src='/eel.js'></script>
+    <script type='text/javascript'>
+
+    async function mostrarSondas() {
+        let div_sondas = document.getElementById('div_sondas');
+        let mostrarSondas = await eel.mostrarSondas()();
+        div_sondas.innerHTML = mostrarSondas;
+        console.log("Entro")
+        return "test";
+      }
+    function sondaAmostrar (xyz)
+      {
+        document.getElementById('div_sondas').appendChild = xyz
+        console.log("Hola issue")
+      }
+    </script>
+  </head>
+  <body onload="mostrarSondas();">
+    <header align = "center">
+      <h1>Gestión de Sondas</h1>
+      <aside>
+        <div>
+          <ul class="menuPrincipal">
+           <li><a href="frontend.html">Inicio</a></li>
+           <li><a href="gestion_De_Sondas.html">Gestion de Sondas</a></li>
+           <li><a href=”#”>Gestion de Clientes</a></li>
+           <li><a href=”#”>Gestion de Issues</a></li>
+           <li><a href=”#”>Contacto</a></li>
+          </ul>
+        </div>
+        <div class = "vista_general">
+          <div class = "lista">
+            <h3 id="div_sondas"></h3>
+          </div>
+          <div class = "lista" id="divReporte">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+          </div>
+          <div class = "lista">
+            <button class = "rainbow-button" type="submit" >Nueva Sonda</button>
+        </div>
+
+      </aside>
+    </header>
+  </body>
+</html>

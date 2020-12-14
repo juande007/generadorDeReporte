@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "CB2025 NTELBO-F_4;Cochabamba;-97;WIMAX;2"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "42"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "42"
+        }
+    ]
+}

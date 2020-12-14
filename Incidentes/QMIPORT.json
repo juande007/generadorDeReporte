@@ -1,0 +1,12 @@
+{
+    "nuevoIncident": [
+        {
+            "Analisis": "La sonda no logra establecer conexión a la red.", 
+            "Descripcion": "Se presenta un conflicto en el SO, el cual impide que se puedan realizar las configuraciones necesarias  para establecer conexión a la red.", 
+            "Workaround": "Se aplica fix.", 
+            "Root Cause": "Se desconoce la causa raíz, posible corrupción en disco.", 
+            "Recomendacion": "Reinicio de la sonda, chequeo de disco.", 
+            "Nombre": "QMIPORT"
+        }
+    ]
+}

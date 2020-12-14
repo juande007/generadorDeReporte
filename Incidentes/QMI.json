@@ -1,11 +1,11 @@
 {
     "nuevoIncident": [
         {
-            "Analisis": "ya lo escribo coma ...", 
-            "Descripcion": "Este error es QMI. ", 
-            "Workaround": "se aplica fix", 
-            "Root Cause": "desconocida aun", 
-            "Recomendacion": "visita a sitio", 
+            "Analisis": "La sonda no logra establecer conexión a la red.", 
+            "Descripcion": "La sonda intenta varias veces establecer conexión a la red, sin embargo no lo logra pues no recibe respuesta.", 
+            "Workaround": "Validar internamente con el área de redes.", 
+            "Root Cause": "No se obtiene respuesta de la red.", 
+            "Recomendacion": "Revisar si hubieron problemas de red en el periodo de fallo.", 
             "Nombre": "QMI"
         }
     ]

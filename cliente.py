@@ -2,7 +2,7 @@ import json
 import os
 from os import remove
 from shutil import rmtree
-from Sonda import Sonda
+from sonda import Sonda
 #EL OBJ
 class Cliente(object):
 

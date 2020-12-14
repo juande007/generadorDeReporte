@@ -1,0 +1,12 @@
+{
+    "nuevoIncident": [
+        {
+            "Analisis": "La sim falla y la sonda no logra establecer conexión a la red.", 
+            "Descripcion": "Cuando se presenta un fallo en la SIM, se observa un mensaje de error como este ERROR: SIM failure.",
+            "Workaround": "Generalmente luego de un tiempo la sonda se recupera, sin embargo se ha aplicado un fix el cual ayuda a mitigar este error.", 
+            "Root Cause": "Desconocido, posible desgaste natural o un ambiente no apropiado.", 
+            "Recomendacion": "En caso de que el issue se presente constantemente, se recomienda hacer un cambio de SIM CARD.", 
+            "Nombre": "SF"
+        }
+    ]
+}

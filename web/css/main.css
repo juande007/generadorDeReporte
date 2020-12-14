@@ -66,8 +66,11 @@ h2{
       color: white;
     }
 .lineasComando{
-  width:50%;
-  height:30px;
+  width:65%;
+  height:40px;
+  border-radius: 7px;
+  margin: 15px;
+
 }
 .vista_general{
   height: 600px;
@@ -146,3 +149,29 @@ h2{
       background-color: #BDC3C7;
       color: white;
     }
+.menuPrincipal {
+ padding: 2px;
+ width: 500%;
+ height: 15px;
+ }
+.menuPrincipal li {
+  display: inline;
+  position:relative;
+   }
+.menuPrincipal li a:hover   {
+      /* background-color: white; */
+      /* color: white;
+      display:block; */
+      background-color: white;
+      margin-top: -2;
+      padding-bottom: 12px;]
+       }
+.menuPrincipal li a {
+  font-family: Arial;
+  font-size: 15px;
+  text-decoration: none;
+  float: left;
+  padding: 15px;
+  background-color: #BDC3C7;
+  color: #2C3E50;
+  }

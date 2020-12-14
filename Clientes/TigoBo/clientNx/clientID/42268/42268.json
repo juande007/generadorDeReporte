@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "TIGOBO_M_010_Loyola_3G_Chuquisaca"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "42268"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "42268"
+        }
+    ]
+}

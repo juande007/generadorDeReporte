@@ -1,0 +1,12 @@
+{
+    "nuevoIncident": [
+        {
+            "Analisis": "La sonda no logra establecer conexión a la red.", 
+            "Descripcion": "La sonda intenta varias veces establecer conexión a la red sin embargo no lo logra pues no recibe respuesta.", 
+            "Workaround": "Validar internamente con el área de redes.", 
+            "Root Cause": "No se obtiene respuesta de la red.", 
+            "Recomendacion": "Revisar si hubieron problemas de red en el periodo de fallo.", 
+            "Nombre": "100times"
+        }
+    ]
+}

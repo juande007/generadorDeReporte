@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "SC3044 NTELBO-F_5;Santa Cruz;-110;TDD;6"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "36"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "36"
+        }
+    ]
+}

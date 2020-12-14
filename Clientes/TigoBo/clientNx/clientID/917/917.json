@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "TIGOBO_M_041_Av. Los Pinos_LTE_Potosi"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "917"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "917"
+        }
+    ]
+}

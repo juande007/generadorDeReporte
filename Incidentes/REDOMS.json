@@ -1,0 +1,12 @@
+{
+    "nuevoIncident": [
+        {
+            "Analisis": "La sonda presenta fallas en las tareas de subida y descarga de archivos, esto puede deberse a un problema de red o un problema en el Media Server", 
+            "Descripcion": " La sonda presenta fallas en las tareas de subida y descarga de archivos.", 
+            "Workaround": "Validar internamente con el área de redes.", 
+            "Root Cause": "Desconocido, out of support scope.", 
+            "Recomendacion": "Revisar si hubieron problemas de red en el periodo de fallo.", 
+            "Nombre": "REDOMS"
+        }
+    ]
+}

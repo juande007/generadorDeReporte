@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "TR4501 NTELBO-F_6;Beni;-95;TDD;4"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "34"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "34"
+        }
+    ]
+}

@@ -1,12 +1,12 @@
 {
     "nuevoIncident": [
         {
-            "Analisis": "prueba de Analisis", 
-            "Descripcion": "Este es el issue Late Packet", 
-            "Workaround": "NA", 
-            "Root Cause": "No aplica", 
-            "Recomendacion": "NA", 
-            "Nombre": "Late Packet"
+            "Analisis": "Se presenta una desincronización.", 
+            "Descripcion": "Cuando se presenta el error, la sonda no es capaz de recuperarse.", 
+            "Workaround": "Es posible que con un reinicio la sonda se recupere, sin embargo se aplica un fix.", 
+            "Root Cause": "Desincronización entre la sonda y la red.", 
+            "Recomendacion": "NA.", 
+            "Nombre": "LatePacket"
         }
     ]
 }

@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "TIGOBO_M_059_Sarco_LTE_Cochabamba_Diego Vargas"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "1098"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "1098"
+        }
+    ]
+}

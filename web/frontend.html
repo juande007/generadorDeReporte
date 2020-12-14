@@ -9,7 +9,6 @@
         async function pick_file() {
             let comando = document.getElementById('input_box').value;
             let file_div = document.getElementById('file-name');
-
           // Call into Python so we can access the file system
             let random_filename = await eel.pick_file(comando)();
             file_div.innerHTML = random_filename;
@@ -33,20 +32,21 @@
           }
         var c = '';
         async function imprimirSonda(){
+          $('.democlass').each(function() {
+                var idSonda=$(this).attr('id');
+                var idError=$(this).attr('value');
+                var evidencia= document.getElementById('ev-'+idSonda).value;
+                var imgEvidencia = document.getElementById('img-'+idSonda).value;
+                console.log(imgEvidencia);
+                idSonda = idSonda.concat(","+idError+","+evidencia+","+imgEvidencia+";");
+                c=c.concat(idSonda);
+          });
 
-        $('.democlass').each(function() {
-        var a=$(this).attr('id');
-        var b=$(this).attr('value');
-        a = a.concat(","+b+";");
-        c=c.concat(a);
-        });
 
-        console.log("Resultado = "+c)
-        var cliente = document.getElementById("cliente").value;
-        console.log("El cliente es "+cliente)
-
-        let datosSonda = await eel.imprimirSonda(c, cliente)();
+          var cliente = document.getElementById("cliente").value;
+          let datosSonda = await eel.imprimirSonda(c, cliente)();
         }
+
         function buscarCliente (algo){
             document.getElementById('input_box').value = algo
         }
@@ -60,10 +60,7 @@
           var textnode = document.createTextNode(sonda+":"+issue);
           var att = document.createAttribute("class");
           att.value = "democlass";
-          // var types = document.create("type");
-          // att.value = "radio";
           addSonda.appendChild(textnode);
-          //addSonda.appendChild(att);
           addSonda.setAttributeNode(att);
           document.getElementById("divReporte").appendChild(addSonda);
 
@@ -71,7 +68,24 @@
           var textSonda = document.createTextNode(sonda+":"+issue);
           labelSonda.appendChild(textSonda);
           document.getElementById("divReporte").appendChild(labelSonda);
-          //addsonda.setAttribute("class", "democlass");
+
+
+          var inputTexto = document.createElement("input");
+          var atrib = document.createAttribute("class");       // Create a "class" attribute
+          atrib.value = "contEvidenciaClass";                           // Set the value of the class attribute
+          inputTexto.setAttributeNode(atrib);
+          inputTexto.type="text";
+          inputTexto.name="contEvidencia";
+          inputTexto.id="ev-"+sonda;
+          inputTexto.class="contEvidencia";
+          document.getElementById("divReporte").appendChild(inputTexto);
+
+          var inputFile = document.createElement("input");
+          inputFile.type = "file";
+          inputFile.name= "ImgEvd";
+          inputFile.id= "img-"+sonda;
+          document.getElementById("divReporte").appendChild(inputFile);
+
           console.log("Entró a la funcion"+xy)
           }
         function  adicionarIssueAReporte (xyz)
@@ -96,6 +110,15 @@
     </header>
       <aside>
         <div>
+          <ul class="menuPrincipal">
+           <li><a href="frontend.html">Inicio</a></li>
+           <li><a href="gestion_De_Sondas.html">Gestion de Sondas</a></li>
+           <li><a href=”#”>Gestion de Clientes</a></li>
+           <li><a href=”#”>Gestion de Issues</a></li>
+           <li><a href=”#”>Contacto</a></li>
+          </ul>
+        </div>
+        <div>
         <form onsubmit="pick_file(); return false;" >
           <input id='input_box' class = "lineasComando">
           <button class = "rainbow-button" type="submit">Buscar</button>
@@ -103,21 +126,21 @@
       </div>
       <div class = "vista_general">
         <div class = "lista">
-            <h3 id="div_clientes"></h3>
+          <h3 id="div_clientes"></h3>
         </div>
         <div class = "lista">
-            <h3 id='file-name'></h3>
-        </div>
-        <div class = "lista">
-          <h3 id="div_incidents"></h3>
+          <h3 id='file-name'></h3>
         </div>
         <div class = "lista" id="divReporte">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
           <h3 id="adicionarSondaAReporte"></h3>
           <form onsubmit="imprimirSonda(); return false;">
-          <button class = "rainbow-button" type="submit" >Enviar</button>
-          <img src="\css\img\logoWord.png" width="20" height="20" onclick = "abrirArchivo()" id="word"></img>
+          <button class = "rainbow-button" type="submit" >Generar</button>
           </form>
+          <img src="\css\img\logoWord.png" width="20" height="20" onclick = "abrirArchivo()" id="word"></img>
+        </div>
+        <div class = "lista">
+          <h3 id="div_incidents"></h3>
         </div>
       </div>
     </aside>

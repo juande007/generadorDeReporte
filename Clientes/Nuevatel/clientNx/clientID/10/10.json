@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "ORURO - SAN PEDRO;NTELBO-M_22"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "10"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "10"
+        }
+    ]
+}

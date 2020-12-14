@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "TIGOBO_M_008_Av. Pedro Marban_3G_Beni"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "42139"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "42139"
+        }
+    ]
+}

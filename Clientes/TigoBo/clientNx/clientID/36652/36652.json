@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "TIGOBO_M_013_Ciudad Satelite_GSM_La Paz"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "36652"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "36652"
+        }
+    ]
+}

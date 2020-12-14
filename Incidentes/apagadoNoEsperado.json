@@ -1,0 +1,12 @@
+{
+    "nuevoIncident": [
+        {
+            "Analisis": "Al revisar los logs se puede observar que la sonda se apaga y se prende de forma inesperada, esto puede deberse a un corte de corriente u otros factores",
+            "Descripcion": "La sonda se apaga y se prende de forma inesperada",
+            "Workaround": "Normalmente la sonda se recupera cuando el fluido de corriente se activa.",
+            "Root Cause": "Desconocido",  
+            "Recomendacion": " NA.",
+            "Nombre": "apagadoNoEsperado"
+        }
+    ]
+}
