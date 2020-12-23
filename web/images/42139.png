@@ -14,7 +14,7 @@
             file_div.innerHTML = random_filename;
           }
         async function clientes() {
-            let boton_clientes = document.getElementById('div_clientes');
+            let div_clientes = document.getElementById('div_clientes');
             let clientes = await eel.clientes()();
 
             div_clientes.innerHTML = clientes;
@@ -48,12 +48,6 @@
         }
 
         function buscarCliente (algo){
-          var x = document.getElementById("div_clientes");
-            if (x.style.display === "none") {
-              x.style.display = "block";
-            } else {
-              x.style.display = "none";
-            }
             document.getElementById('input_box').value = algo
         }
         function adicionarSondaAReporte(sonda,issue){
@@ -106,51 +100,34 @@
 
           window.location.reload();
             }
-
-        function abrirArchivoLog(evento){
-            let archivo = evento.target.files[0];
-
-            if (archivo){
-              let reader = new FileReader();
-
-              reader.onload = function(e){
-              let contenido = e.target.result;
-
-              document.getElementById('contenidoTx').innerText = contenido;
-            };
-              reader.readAsText(archivo);
-            }else{
-              console.log("No hay nada, está vacío.");
-            }
-          }
-            window.addEventListener('load', () => {
-              document.getElementById('archivolog').addEventListener('change', abrirArchivoLog);
-            });
     </script>
 
       </script>
   </head>
   <body onload="clientes();listaIncidentes();">
-        <div>
-          <ul class="menuPrincipal">
-           <li><a href="frontend.html">Reporte</a></li>
-           <li><a href="gestion_De_Sondas.html">Sondas</a></li>
-           <li><a href=”#”>Clientes</a></li>
-           <li><a href=”#”>Issues</a></li>
+    <header align = "center">
+      <h1>Generador de Reportes</h1>
+    </header>
+      <aside>
+        <div class="menuPrincipal">
+          <ul>
+           <li><a href="frontend.html">Inicio</a></li>
+           <li><a href="gestion_De_Sondas.html">Gestion de Sondas</a></li>
+           <li><a href=”#”>Gestion de Clientes</a></li>
+           <li><a href=”#”>Gestion de Issues</a></li>
+           <li><a href=”#”>Contacto</a></li>
           </ul>
         </div>
-        <div>
-        <form onsubmit="pick_file(); return false;">
+        <div id="Buscador">
+        <form onsubmit="pick_file(); return false;" >
           <button class = "boton-buscar" type="submit">Buscar</button>
           <input id='input_box' class = "lineasComando">
         </form>
       </div>
-      <div id= "vista_general">
-          <div id="div_clientes">
-            <ul class="boton_clientes">
-
-            </ul>
-          </div>
+      <div class = "vista_general">
+        <div class = "lista">
+          <h3 id="div_clientes"></h3>
+        </div>
         <div class = "lista">
           <h3 id='file-name'></h3>
         </div>
@@ -164,12 +141,8 @@
         </div>
         <div class = "lista">
           <h3 id="div_incidents"></h3>
-          <h2>Seleccione archivo de Log.</h2>
-          <input type="file" id="archivolog">
-          <hr>
-          <textarea id="contenidoTx"></textarea>
         </div>
-          </div>
       </div>
+    </aside>
   </body>
 </html>

@@ -1,70 +1,68 @@
 body{
-  margin: 3%;
-  padding: 0;
-  position: relative;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: #DADBDC;
-  right: 0;
-}
-header{
-  width: 100%;
-  height: 70px;
-  display: grid;
-  grid-template: 1fr 1fr;
-  background-color: #C6C5C5;
-  align: "center";
-
-}
-aside{
-  right: 10;
+    padding: 0;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #4C4C4D;
+    right: 0;
+	width: 96%;
 }
 h1{
-  color: #34495E;
+	color: #red;
 }
-h2{
-  color: #2C3E50;
-}
-.boton_personalizado{
-    width:80px;
-    height:3px;
-    padding: .6rem 1rem;
-    border-radius: 4px;
-    font-weight: 50;
-    font-size: 10px;
-    color: #5D6D7E;
-    background: #FAFBFC;
-    border-radius: 6px;
-    border: 2px solid #2C3E50;
-    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-    text-align: center;
 
-  }
-.boton_personalizado:hover {
-      background-color: #BDC3C7;
-      color: white;
- }
+#vista_general{
+    height: 600px;
+    width: 100%;
+    border: 10px;
+    border-top: 10px solid #4C4C4D;
+    background-color: transparent;
+}
+
+
+
+#selecion_cliente{
+	width: 100%;
+	height: 300px;
+	background-color:#747474 ;
+
+}
 
 .boton_clientes{
-  width:80px;
-  height:3px;
-  padding: .6rem 1rem;
-  border-radius: 4px;
-  font-weight: 50;
-  font-size: 10px;
-  color: #5D6D7E;
-  background: #FAFBFC;
-  border-radius: 5px;
-  border: 2px solid #2C3E50;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-  text-align: center;
+   width:100%;
+   height:40px;
+   background-color: #494949;
+   border-top: 130px solid #494949;
+   border-bottom: 130px solid #494949;
 }
-.boton_clientes:hover {
-      background-color: #BDC3C7;
-      color: white;
-    }
+
+.boton_clientes li a{
+    background-color: #A8A8A8;
+    padding-top: 130px;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-bottom: 150px;
+	border-right: 20px solid #A8A8A8;
+	border-left: 20px solid #A8A8A8;
+  }
+
+.boton_clientes li{
+    display: inline;
+ }
+
+
+
+.boton_clientes li a:hover{
+    background-color: #BDC3C7;
+	border-right: 20px solid #BDC3C7;
+	border-left: 20px solid #BDC3C7;
+ }
+
+
+
+
 .lineasComando{
   width:65%;
   height:40px;
@@ -72,12 +70,7 @@ h2{
   margin: 15px;
 
 }
-.vista_general{
-  height: 600px;
-  width: 100%;
-  background-color: #71B5F9;
-  border: 20px;
-}
+
 .lista{
   width: 20%;
   height: 600px;
@@ -89,6 +82,7 @@ h2{
   border-color: red;
   padding: 10px;
 }
+
 
 .rainbow-button {
   text-decoration:none;
@@ -149,29 +143,51 @@ h2{
       background-color: #BDC3C7;
       color: white;
     }
-.menuPrincipal {
- padding: 2px;
- width: 500%;
- height: 15px;
+
+.boton_personalizado{
+    width:80px;
+    height:3px;
+    padding: .6rem 1rem;
+    border-radius: 4px;
+    font-weight: 50;
+    font-size: 10px;
+    color: #5D6D7E;
+    background: #FAFBFC;
+    border-radius: 6px;
+    border: 2px solid #2C3E50;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    text-align: center;
+
+  }
+.boton_personalizado:hover {
+      background-color: #BDC3C7;
+      color: white;
  }
+.menuPrincipal {
+    width: 100%;
+    height: 30px;
+	background-color: #626262;
+ }
+
 .menuPrincipal li {
   display: inline;
   position:relative;
    }
+
 .menuPrincipal li a:hover   {
-      /* background-color: white; */
-      /* color: white;
-      display:block; */
-      background-color: white;
-      margin-top: -2;
-      padding-bottom: 12px;]
+      background-color: #777777;
        }
+
 .menuPrincipal li a {
-  font-family: Arial;
+  font-family: 'DejaVu Serif', Georgia, 'serif';
   font-size: 15px;
   text-decoration: none;
   float: left;
-  padding: 15px;
-  background-color: #BDC3C7;
-  color: #2C3E50;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  background-color: #626262;
+  color: #D9D9D9;
   }

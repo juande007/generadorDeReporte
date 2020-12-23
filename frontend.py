@@ -38,7 +38,6 @@ def pick_file(comando):
         for issueElmente in mostrarIncidents:
             resultado=resultado+"<li class='boton_sondas' onclick= adicionarSondaAReporte('"+element+"','"+issueElmente+"') >"+issueElmente+"</li>"
     resultado=resultado+"</div>"
-
     return resultado
 
 
@@ -46,9 +45,10 @@ def pick_file(comando):
 def clientes():
     reportes = GeneradorDeReporte
     listadoClientes = reportes.listadoDeClientes()
-    resultado=""
+    resultado="<ul class='boton_clientes'>"
     for element in listadoClientes:
-        resultado=resultado+"<div class='boton_clientes' id="+element+" onclick=buscarCliente('"+element+"')>"+element+"</div>"
+        resultado=resultado+"<li><a id="+element+" onclick=buscarCliente('"+element+"')>"+element+"</a></li>"
+    resultado=resultado+"</ul>"
 
     #print (resultado)
     return resultado
@@ -61,6 +61,8 @@ def listaIncidentes():
     for element in mostrarIncidents:
         inc = inc + "<div class='boton_issues' id="+element+" onclick=adicionarIssueAReporte('"+element+"')>"+element+"</div>"
     return inc
+
+
 @eel.expose
 def imprimirSonda(datosSonda,cliente):
 

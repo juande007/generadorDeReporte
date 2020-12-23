@@ -1,0 +1,3 @@
+Archivo Log mostrarlo y que escoja los errores y los pase al archivo log.
+A las imágenes ponerles el código de la sonda.
+Informes nuevos de TIGOCO

@@ -1,0 +1,32 @@
+<html>
+<body>
+  <h2>Seleccione archivo de Log.</h2>
+  <input type="file" id="archivolog">
+  <hr>
+  <textarea id="contenido"></textarea>
+  <p id="mensaje"></p>
+  <script>
+  function abrirArchivoLog(evento){
+      let archivo = evento.target.files[0];
+
+      if (archivo){
+        let reader = new FileReader();
+
+        reader.onload = function(e){
+        let contenido = e.target.result;
+
+        document.getElementById('contenido').innerText = contenido;
+      };
+        reader.readAsText(archivo);
+      }else{
+        getElementById('mensaje').innerText = "No se ha seleccionado ningún archivo.";
+      }
+    }
+      window.addEventListener('load', () => {
+        document.getElementById('archivolog').addEventListener('change', abrirArchivoLog);
+      });
+  </script>
+
+
+</body>
+</html>

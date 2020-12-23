@@ -1,0 +1,15 @@
+TIGOCO_M_P_xxx
+Client ID: xxxx
+TeamViewer ID: xxxx
+FechaRevisión: DD/MM/YYYY
+Código de Falla: CMOXXX  - ...falla en ..
+
+Tareas realizadas para mitigación de fallos:
+                            - Ajustes de rendimiento del Sistema Operativo. 
+                            - Instalación de Tareas Programadas actualizadas
+                           - Liberación de espacio en el Disco Duro
+                            - ActualizacióndeNxClient Version: 3.5.2.14
+Las pruebas generales de funcionamiento realizadas:                                
+                          - Múltiples pruebas de conectividad con NxWeb Server de forma Satisfactoria 
+                          - Verificación de ejecución de tareas programadas
+                          -SeverificacorrectofuncionamientodeJobsconfiguradosenNxWebServer
