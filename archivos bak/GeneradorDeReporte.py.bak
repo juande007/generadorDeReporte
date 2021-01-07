@@ -8,7 +8,7 @@ def tarea(comando):
 	patron = re.compile('([a-zA-Z]+)(\s)')
 	matcher = patron.search(palabra)
 	cliente = matcher.group()
-	print(('El cliente es: ' + cliente))
+	print ('El cliente es: ' + cliente)
 	regex = '\d+'
 	match = re.findall(regex, comando)
 	print(match)

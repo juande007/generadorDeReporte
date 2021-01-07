@@ -61,7 +61,7 @@ class Sonda (object):
         contenidoSond = os.listdir(dir)
         print(contenidoSond)
         for element in contenidoSond:
-            print element
+            print (element)
         return contenidoSond
 
 def main():

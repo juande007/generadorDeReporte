@@ -8,12 +8,12 @@ class Incidents:
     def incidentes (self):
         data = {}
         #Aqui solicitamos los datos necesarios para crear el archivo Json de Incidentes en las Sondas
-        name_incident = (input('Nombre del incidente: '))
-        desc_incident = (input('Descripcion de incidente: '))
-        analisis_incident = (input('Analisis: '))
-        root_incident = (input('Rot cause: '))
-        workar_incident = (input('Workaround: '))
-        rec_incident = (input('Recomendacion: '))
+        name_incident = (raw_input('Nombre del incidente: '))
+        desc_incident = (raw_input('Descripcion de incidente: '))
+        analisis_incident = (raw_input('Analisis: '))
+        root_incident = (raw_input('Rot cause: '))
+        workar_incident = (raw_input('Workaround: '))
+        rec_incident = (raw_input('Recomendacion: '))
         #Se crea una lista que capte los datos y los guarde
         data ['nuevoIncident']= []
         data['nuevoIncident'].append({

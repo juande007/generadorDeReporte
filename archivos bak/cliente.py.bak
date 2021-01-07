@@ -17,7 +17,7 @@ class Cliente(object):
     def menu_cliente():
         print('1- Editar un cliente: ')
         print('2- Eliminar un cliente: ')
-        opcion = (input('Seleccione la tarea a realizar: '))
+        opcion = (raw_input('Seleccione la tarea a realizar: '))
         if opcion == '1':
             editar_cliente()
         else:
@@ -28,7 +28,7 @@ class Cliente(object):
         contenido = []
         dir = "./Clientes"
         contenido = os.listdir(dir)
-        print((type(contenido)))
+        print(type(contenido))
         for element in contenido:
             print (element)
         return contenido
@@ -36,7 +36,7 @@ class Cliente(object):
         #Esta funcion crea un nuevo cliente con sus respectivos atributos
     def agregar_Cliente():
         print ('Nuevo cliente.\n')
-        nuevo_cliente= str(input('Ingrese nombre del nuevo cliente: '))
+        nuevo_cliente= str(raw_input('Ingrese nombre del nuevo cliente: '))
         clientJson = {}
         clientJson ['nombreDeCliente'] =[]
         clientJson ['nombreDeCliente'].append({
@@ -48,13 +48,13 @@ class Cliente(object):
         #Este codigo crea un archivo json del nuevo cliente
         with open(os.path.join(dir, file_name), 'w') as file:
             json.dump(clientJson, file, indent=4)
-        print(("Se guardo nuevo cliente: " + nuevo_cliente))
+        print ("Se guardo nuevo cliente: " + nuevo_cliente)
         #Esta funcion permite editar un cliente ya existente
     def editar_cliente():
         dir_Clientes = "./Clientes/"
         #Aqui se solcita el nombre y nuevo nombre del cliente que se quiere editar
-        nombre_cliente = str(input('Ingrese nombre del cliente: '))
-        nuevo_nombre = str(input('Ingrese el nuevo nombre: '))
+        nombre_cliente = str(raw_input('Ingrese nombre del cliente: '))
+        nuevo_nombre = str(raw_input('Ingrese el nuevo nombre: '))
         path_cliente =  dir_Clientes+nombre_cliente
         clientJson = {}
         clientJson ['nombreDeCliente'] =[]
@@ -72,34 +72,34 @@ class Cliente(object):
         with open(str(file_cliente_new), 'r') as file:
             json.load(file)
             file.close()
-            print(("archivo a crear :"+file_cliente_new))
-            print(("Nombre del anterior archivo:"+file_cliente_old))
+            print("archivo a crear :"+file_cliente_new)
+            print("Nombre del anterior archivo:"+file_cliente_old)
         with open(str(file_cliente_new), 'w') as file:
             json.dump(clientJson, file, indent=4)
         #Esta funcion permite eliminar un cliente
     def eliminar_cliente():
         #Aqui especificamos la ruta de la carpeta del cliente a eliminar y solicitamos el nombre del cliente a eliminar
-        carpeta= (input('Escriba el nombre de la carpeta a eliminar: '))
+        carpeta= (raw_input('Escriba el nombre de la carpeta a eliminar: '))
         rmtree('./Clientes/'+ carpeta,carpeta)
         #Esta funcion nos permite buscar un cliente en el directorio
     def buscar_cliente(self):
         #Aqui solicitamos el nombre del cliente a buscar y se muestra el resultado
-        carpetaBusq = (input('Ingrese el nombre del cliente a buscar: '))
-        print((os.path.isdir('./Clientes/' +carpetaBusq)))
+        carpetaBusq = (raw_input('Ingrese el nombre del cliente a buscar: '))
+        print(os.path.isdir('./Clientes/' +carpetaBusq))
         print(carpetaBusq)
         return "Esta funcion no se ah implemenado"
 
 def main():
         #eliminar_cliente()
-        tarea=input('Ingrese el cliente y las sondas. ejemplo togobo 2233 4456')
+        tarea=raw_input('Ingrese el cliente y las sondas. ejemplo togobo 2233 4456')
         print(tarea)
         carlos=Cliente("Tigo","Carlos Mercado")
-        print((carlos.cliente_contacto()))
-        sonda = Sonda(input('Ingrese Id de la nueva sonda: '))
-        print((sonda.agregarSonda()))
-        print((sonda.agregarNombre(input('Ingrese el nombre de la sonda: '))))
-        print((sonda.agregarDescripcion(input('Descripcion de sonda: '))))
-        print((sonda.buscarSonda()))
+        print(carlos.cliente_contacto())
+        sonda = Sonda(raw_input('Ingrese Id de la nueva sonda: '))
+        print (sonda.agregarSonda())
+        print (sonda.agregarNombre(raw_input('Ingrese el nombre de la sonda: ')))
+        print (sonda.agregarDescripcion(raw_input('Descripcion de sonda: ')))
+        print (sonda.buscarSonda())
         sonda.imprimirSonda()
         objetoCliente=Cliente("tigo","test")
         objetoCliente.buscar_cliente()
