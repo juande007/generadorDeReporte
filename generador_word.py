@@ -46,7 +46,7 @@ class Reportes:
             print(descripcion)
             print(analisis)
             print(rootCause)
-
+            print ("Pruebas...")
     def generadorWord(self, li):
 
         # id_sonda = int(raw_input('Ingrese el ID de la sonda: '))
