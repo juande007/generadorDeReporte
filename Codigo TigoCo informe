@@ -1,0 +1,9 @@
+else:
+      document.add_paragraph("TIGOCO_M_P_"+ str(sonda))
+      document.add_paragraph("Client ID: "+ str())
+      document.add_paragraph("Team Viewer ID: "+ str())
+      document.add_paragraph("Fecha Revisión" +str(date))
+      document.add_paragraph("Código de falla: CMO")
+      document.add_paragraph("")
+      document.add_paragraph("Tareas realizadas para mitigación de fallos: ")
+      document.add_paragraph("Las pruebas generales de funcionamiento realizadas")

@@ -33,11 +33,19 @@ def pick_file(comando):
     sondas = reporte.tarea(comando)
     print(comando)
     resultado="<input disabled type='text' id='cliente' value='"+cliente+"'><p>"+cliente+"</p></input>"
+    view=True
     for element in sondas:
-        resultado=resultado+"<div><li id="+element+">"+element+"</li>"
+        resultado=resultado+"<div id=sonda-"+element+">"
         for issueElmente in mostrarIncidents:
-            resultado=resultado+"<li class='boton_sondas' onclick= adicionarSondaAReporte('"+element+"','"+issueElmente+"') >"+issueElmente+"</li>"
-    resultado=resultado+"</div>"
+            if view:
+                resultado=resultado+"<li class='boton_sondas_A' onclick= adicionarSondaAReporte('"+element+"','"+issueElmente+"') >"+element+" - "+issueElmente+"</li>"
+            else:
+                resultado=resultado+"<li class='boton_sondas_B' onclick= adicionarSondaAReporte('"+element+"','"+issueElmente+"') >"+element+" - "+issueElmente+"</li>"
+        if view:
+            view=False
+        else:
+            view=True
+        resultado=resultado+"</div>"
     return resultado
 
 

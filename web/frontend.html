@@ -92,12 +92,20 @@
           inputFile.id= "img-"+sonda;
           document.getElementById("divReporte").appendChild(inputFile);
 
-          console.log("Entró a la funcion"+xy)
+          console.log("sonda-"+sonda)
+          var nombreDivSonda = "sonda-"+sonda
+          var divSonda = document.getElementById(nombreDivSonda);
+            if (divSonda.style.display === "none") {
+              divSonda.style.display = "block";
+            } else {
+              divSonda.style.display = "none";
+            }
+
+
           }
         function  adicionarIssueAReporte (xyz)
           {
             document.getElementById('div_incidents').appendChild = xyz
-            console.log("Hola issue")
             document.getElementById("divReporte").textContent = xyz;
             }
         async function abrirArchivo() {
@@ -141,34 +149,38 @@
         </div>
         <div>
         <form onsubmit="pick_file(); return false;">
-          <button class = "boton-buscar" type="submit">Buscar</button>
+          <button id = "boton-buscar" type="submit">Buscar</button>
           <input id='input_box' class = "lineasComando">
         </form>
       </div>
       <div id= "vista_general">
           <div id="div_clientes">
             <ul class="boton_clientes">
-
             </ul>
           </div>
-        <div class = "lista">
-          <h3 id='file-name'></h3>
-        </div>
-        <div class = "lista" id="divReporte">
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-          <h3 id="adicionarSondaAReporte"></h3>
-          <form onsubmit="imprimirSonda(); return false;">
-          <button class = "boton-generar" type="submit" >Generar</button>
-          </form>
-          <img src="\css\img\logoWord.png" width="20" height="20" onclick = "abrirArchivo()" id="word"></img>
-        </div>
-        <div class = "lista">
-          <h3 id="div_incidents"></h3>
-          <h2>Seleccione archivo de Log.</h2>
-          <input type="file" id="archivolog">
-          <hr>
-          <textarea id="contenidoTx"></textarea>
-        </div>
+          <div id="divReporte">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <h3 id="adicionarSondaAReporte"></h3>
+            <div id=seccionGenerar>
+            <form onsubmit="imprimirSonda(); return false;">
+            <button class = "boton-generar" type="submit" >Generar</button>
+            </form>
+            </div>
+            <div>
+            <img src="\css\img\logoWord.png" width="20" height="20" onclick = "abrirArchivo()" id="word"></img>
+            </div>
+
+          </div>
+          <div class = "lista">
+            <h3 id='file-name'></h3>
+          </div>
+
+          <div id = "issues">
+            <h3 id="div_incidents"></h3>
+            <h2>Seleccione archivo de Log.</h2>
+            <input type="file" id="archivolog">
+            <hr>
+            <textarea id="contenidoTx"></textarea>
           </div>
       </div>
   </body>
