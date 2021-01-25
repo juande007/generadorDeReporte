@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"009",
+            "Titulo":"Fallo en sistema operativo.",
+            "Caracteristicas":"-   Problemasparainiciarsistemaoperativo.    -    Fallas en tareas programadas    -   Fallasenlasconexionesdered  -    Fallas de acceso a configuraciones que impiden el correcto funcionamiento   -    Lentitud o bloqueo de aplicaciones.",
+            "Solucion":"Reinstalar el sistema operativo y reconfigurar el equipo."
+        }
+    ]
+}

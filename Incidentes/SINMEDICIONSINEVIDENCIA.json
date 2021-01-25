@@ -1,0 +1,12 @@
+{
+    "nuevoIncident": [
+        {
+            "Analisis": "El revisar las sonda, se puede observar una ausencia de mediciones, se intenta acceder a la sonda en varias ocasiones sin embargo la misma es inaccesible, esto debido a una señal o velocidad muy débil", 
+            "Descripcion": " La sonda no realiza todas la mediciones", 
+            "Workaround": "NA", 
+            "Root Cause": "En este caso no es posible saber la causa raíz pues no se cuenta con los logs", 
+            "Recomendacion": " El tiempo que tarda en ejecutarse el job es tan corto que no es posible el acceso a la sonda por team Viewer  por lo que una posible solución es incrementar las pruebas en el job", 
+            "Nombre": "SINMEDICIONSINEVIDENCIA"
+        }
+    ]
+}

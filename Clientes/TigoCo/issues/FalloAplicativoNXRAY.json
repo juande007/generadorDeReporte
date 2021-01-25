@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"010",
+            "Titulo":"FALLO EN APLICATIVO NXRAY.",
+            "Caracteristicas":"-    La aplicación ejecuta múltiples instancias simultáneamente.   -    La aplicación no se ejecuta automáticamente con el inicio del SO.  -   NoseejecutanlosJobsautomáticamente.   -    Posterior aunamediciónnosecarganlospaquetesalservidor.   -    La aplicación se bloquea. -    La aplicación inicia y finaliza cíclicamente sin dar tiempo a las mediciones.",
+            "Solucion":"Reinstalación de NxRay."
+        }
+    ]
+}

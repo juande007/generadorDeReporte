@@ -1,0 +1,12 @@
+{
+    "nuevoIncident": [
+        {
+            "Analisis": "Se accede a NxWeb, donde se puede visualizar que la sonda no cuenta con conexión a internet.", 
+            "Descripcion": " La sonda pierde conectividad desde la fecha YYYY/MM/DD", 
+            "Workaround": "Mencionado lo anterior, sugerimos realizar una visita al sitio por medio de una persona técnica para realizar un throubleshooting en conjunto con el equipo de Soporte Thales, crear un ticket en snow https://prod.servicenow.gemalto.com, grupo: DES LATAM - RUN – QoE y coordinar la fecha y hora de la visita a sitio", 
+            "Root Cause": "Desconocido", 
+            "Recomendacion": "Al realizar la visita a sitio, se recomienda llevar, pantalla con entrada VGA, teclado, mouse, cable de red.", 
+            "Nombre": "CAIDA"
+        }
+    ]
+}

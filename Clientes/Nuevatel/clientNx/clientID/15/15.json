@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "COCHABAMBA - SIDUMSS;NTELBO-M_27"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "15"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "15"
+        }
+    ]
+}

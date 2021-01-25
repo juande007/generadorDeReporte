@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"001",
+            "Titulo":"Daño de disco duro.",
+            "Caracteristicas":"- interrupción inmediata del servicio o degradación progresiva del desempeño del equipo. - Se puede observar en pantalla negra mensajes que indican que no se reconoce dispositivo de almacenamiento. - Cuando el desempeño de la sonda exige reinstalación del sistema operativo y la reinstalación del mismo es fallida generando avisos de error.",
+            "Solucion":"Reemplazo de disco duro, y a su vez, se debe reinstalar y reconfigurar el SO y el software."
+        }
+    ]
+}

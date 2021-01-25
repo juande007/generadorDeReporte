@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"014",
+            "Titulo":"Disco lleno",
+            "Caracteristicas":"El disco está lleno y no se pueden escribir los paquetes.",
+            "Solucion":""
+        }
+    ]
+}

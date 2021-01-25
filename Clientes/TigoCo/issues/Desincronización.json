@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"003",
+            "Titulo":"Desincronización",
+            "Caracteristicas":"-   Al encender la sonda inicia con su hora por defecto, que generalmente corresponde al año 2009.    -   En NxWeb se observa la sonda con conexión pero sin mediciones.    -  En los logs de NxRay se presenta el warning “Late Package”",
+            "Solucion":"Reiniciar la aplicación NxClient y reemplazar la pila interna"
+        }
+    ]
+}

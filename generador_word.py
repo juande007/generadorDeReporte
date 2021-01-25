@@ -213,18 +213,35 @@ class Reportes:
                 issue = li[contador][1]
                 evidencia = li[contador][2]
 
-                document.add_paragraph("--------------------------------------------------------------------")
-                document.add_paragraph("")
-                document.add_paragraph("TIGOCO_M_P_" + str(sonda))
-                document.add_paragraph("Client ID: ")
-                document.add_paragraph("Team Viewer ID: ")
-                document.add_paragraph("Fecha Revisión")
-                document.add_paragraph("Código de falla: CMO")
-                document.add_paragraph("")
-                document.add_paragraph("Tareas realizadas para mitigación de fallos: ")
-                document.add_paragraph("Las pruebas generales de funcionamiento realizadas")
-                document.add_paragraph("")
-                document.add_paragraph("--------------------------------------------------------------------")
+                f = open(".\Incidentes/"+issue, "r")
+                contenido = f.read()
+                archivoJson = json.loads(contenido)
+
+                for lineaArchivoConfig in archivoJson["nuevoIncident"]:
+                    codigo = lineaArchivoConfig["Codigo"]
+                    titulo = lineaArchivoConfig["Titulo"]
+                    caracteristicas = lineaArchivoConfig["Caracteristicas"]
+                    solucion = lineaArchivoConfig["Solucion"]
+
+
+                    document.add_paragraph("--------------------------------------------------------------------")
+                    document.add_paragraph("")
+                    document.add_paragraph("TIGOCO_M_P_" + str(sonda))
+                    document.add_paragraph(caracteristicas)
+                    document.add_paragraph("Client ID: ")
+                    document.add_paragraph("Team Viewer ID: ")
+                    document.add_paragraph("Fecha Revisión: "+str(date_time))
+                    document.add_paragraph("Código de falla: CMO"+ str(codigo) + " Falla en:")
+                    document.add_paragraph(titulo)
+                    tabla = document.add_table(rows=1, cols=1)
+                    tabla.style = 'TableGrid'
+                    tabla.rows[0].cells[0].text = evidencia
+                    document.add_paragraph("Tareas realizadas para mitigación de fallos: ")
+                    document.add_paragraph("Las pruebas generales de funcionamiento realizadas")
+                    document.add_paragraph("")
+                    document.add_paragraph("Solución:")
+                    document.add_paragraph(solucion)
+                    document.add_paragraph("--------------------------------------------------------------------")
 
                 contador += 1
 

@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"002",
+            "Titulo":"Daño por sulfatación y/o oxidación",
+            "Caracteristicas":"La sonda presenta diferentes fallas como:   Componentes físicos oxidados o sulfatados   -   NoreconocimientodedispositivosUSB  -    Sin imagen en pantalla   -   Sondanoprende    -    entre otras dependiendo del elemento afectado.",
+            "Solucion":"Reiniciar la aplicación NxClient y reemplazar la pila interna."
+        }
+    ]
+}

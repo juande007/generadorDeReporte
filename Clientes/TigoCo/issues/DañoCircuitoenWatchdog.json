@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"008",
+            "Titulo":"Daño de circuito integrado en Watchdog",
+            "Caracteristicas":"-    En la revisión de los reinicios del sistema operativo con el aplicativo “turned on times view” se observan reinicios de la sonda cada diez minutos aproximadamente.",
+            "Solucion":"Reemplazar o retirar warchdog."
+        }
+    ]
+}

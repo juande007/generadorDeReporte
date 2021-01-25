@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"016",
+            "Titulo":"Interrupción de NxClient.",
+            "Caracteristicas":"NxClient es detenido de forma manual.",
+            "Solucion":""
+        }
+    ]
+}

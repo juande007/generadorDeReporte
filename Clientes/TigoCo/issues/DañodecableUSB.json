@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"004",
+            "Titulo":"Daño de cable USB.",
+            "Caracteristicas":"-   En NxWeb y en Teamviewer la sonda no se conecta. -   Al intenta establecer conexión a internet a través de la aplicación Connection Manager se muestra que no se identifica ningún dispositivo conectado.",
+            "Solucion":"Reemplazar el cable."
+        }
+    ]
+}

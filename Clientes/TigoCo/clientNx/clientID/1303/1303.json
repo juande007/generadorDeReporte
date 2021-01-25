@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "CHI.Chia Norte_CUN0234_CHIA_1S2021"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "1303"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "1303"
+        }
+    ]
+}

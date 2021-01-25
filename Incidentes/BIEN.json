@@ -1,0 +1,12 @@
+{
+    "nuevoIncident": [
+        {
+            "Analisis": "Al revisar la sonda en NxWeb, encontramos que la sonda realizó todas las mediciones de forma correcta.", 
+            "Descripcion": "La sonda se encuentra bien, es probable que la sonda hubiera subido los paquetes después del conteo de mediciones.", 
+            "Workaround": "NA", 
+            "Root Cause": "NA", 
+            "Recomendacion": "NA.", 
+            "Nombre": "BIEN"
+        }
+    ]
+}

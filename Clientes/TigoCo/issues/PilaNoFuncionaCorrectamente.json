@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"013",
+            "Titulo":"Pila no funciona correctamente.",
+            "Caracteristicas":"Una vez se reinicia la sonda, hora cambia o se adelanta o vuelve a la hora correcta.",
+            "Solucion":"Cambiar la pila"
+        }
+    ]
+}

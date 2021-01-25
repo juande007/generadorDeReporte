@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"017",
+            "Titulo":"SIM PIN REQUIERED",
+            "Caracteristicas":"Este error se debe a diferentes razones como un mal contacto entre la SIM y el módulo donde se coloca o puede ser que la SIM no esté funcionando correctamente, es posible que esta falla se corriga con un reinicio",
+            "Solucion":""
+        }
+    ]
+}

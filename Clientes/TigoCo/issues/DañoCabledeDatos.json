@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"007",
+            "Titulo":"Daño en cable de datos (Sonda fija)",
+            "Caracteristicas":"Ausenciadeconexión. -    Imposibilidad de la sonda de reconocer una conexión activa en su tarjeta de red.",
+            "Solucion":"Validar el estado del cable de red y del estado de la red."
+        }
+    ]
+}

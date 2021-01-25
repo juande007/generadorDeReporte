@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"006",
+            "Titulo":"Daño en tarjeta SIM",
+            "Caracteristicas":"-    Alintentaestablecerconexión a internet a travésdela aplicación Connection Manager,el aviso de error generado informa los problemas de SIM en la ranura del modem",
+            "Solucion":"Reemplazar la tarjeta SIM."
+        }
+    ]
+}

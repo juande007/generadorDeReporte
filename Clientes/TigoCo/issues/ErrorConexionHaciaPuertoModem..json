@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"015",
+            "Titulo":"Error de conexión hacie el puerto del módem.",
+            "Caracteristicas":"El disco está lleno y no se pueden escribir los paquetes.Se logra establecer conexión a la red, sin embargo nxcliente no puede encontrar el puerto del módem.",
+            "Solucion":""
+        }
+    ]
+}

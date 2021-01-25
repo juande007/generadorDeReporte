@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "LA PAZ - MALLASILLA;NTELBO-M_15"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "3"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "3"
+        }
+    ]
+}

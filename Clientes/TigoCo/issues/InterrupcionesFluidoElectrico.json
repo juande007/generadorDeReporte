@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"012",
+            "Titulo":"Interrupciones del fluido eléctrico.",
+            "Caracteristicas":"-    Reinicio errático de la sonda, como no iniciar procesos, freeze de imagen, puertos sin reconocer.-    En la revisión de los reinicios del sistema operativo con el aplicativo “turned on times view” se observan reinicios no programados, inesperados y en horarios aleatorios.",
+            "Solucion":"Conectar la sonda a una red eléctrica regulada y estable."
+        }
+    ]
+}

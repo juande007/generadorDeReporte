@@ -1,0 +1,17 @@
+{
+    "descripcion": [
+        {
+            "descripcionSonda": "TIGOBO_M_035_Tunari El Alto_LTE_La Paz"
+        }
+    ], 
+    "nuevaSonda": [
+        {
+            "IDSonda": "43850"
+        }
+    ], 
+    "NombreSonda": [
+        {
+            "NombreSonda": "43850"
+        }
+    ]
+}

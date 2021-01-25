@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"005",
+            "Titulo":"Daño circuito integrado en modem",
+            "Caracteristicas":"Dificultadoimposibilidadparaestablecerconexión.    -    Temperaturas altas en el modem al tacto (en caso de corto interno).",
+            "Solucion":"Validar las condiciones y conexiones internas del modem (por Gemalto), en caso de encontrar daño en el integrado es necesario el reemplazo del modem."
+        }
+    ]
+}

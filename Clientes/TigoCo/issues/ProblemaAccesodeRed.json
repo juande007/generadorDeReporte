@@ -1,0 +1,10 @@
+{
+    "nuevoIncident": [
+        {
+            "Codigo":"011",
+            "Titulo":"Problema de acceso a la red",
+            "Caracteristicas":"En NxWeb la sonda presenta intermitencia en las mediciones, con ausencia de muchas de ellas.-   En los registros de potencia se evidencia bajos niveles de potencia.-   En la prueba “Test connection” se observa el nivel de potencia débil.",
+            "Solucion":"Reubicar la sonda"
+        }
+    ]
+}
